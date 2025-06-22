@@ -50,8 +50,12 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">🚗</span>
+                    <span>Milwaukee's #1 Traffic App</span>
+                </div>
                 <h1 class="hero-title">
-                    Get Real-Time Travel Times & Traffic Info for Milwaukee
+                    Get <span class="highlight-text">Real-Time</span> Travel Times & Traffic Info for <span class="highlight-location">Milwaukee</span>
                 </h1>
                 <p class="hero-subtitle">
                     Plan ahead, avoid delays, and get where you need to go—download Travel Times today!
@@ -80,18 +84,32 @@
                 </div>
             </div>
             <div class="hero-image">
-                <div class="phone-mockup">
-                    <div class="phone-screen">
-                        <img src="assets/IMG_1586.png" alt="Travel Times Milwaukee App Screenshot">
+                <div class="phone-mockup-container">
+                    <div class="floating-elements">
+                        <div class="floating-icon floating-icon-1">🚦</div>
+                        <div class="floating-icon floating-icon-2">⏱️</div>
+                        <div class="floating-icon floating-icon-3">📍</div>
+                        <div class="floating-icon floating-icon-4">🛣️</div>
+                    </div>
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="assets/IMG_1586.png" alt="Travel Times Milwaukee App Screenshot" class="app-screenshot">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="hero-background">
+            <div class="mesh-gradient"></div>
             <div class="traffic-animation">
                 <div class="car car-1"></div>
                 <div class="car car-2"></div>
                 <div class="car car-3"></div>
+            </div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
             </div>
         </div>
     </section>
@@ -101,23 +119,34 @@
         <div class="container">
             <h2 class="section-title">Why Choose Travel Times Milwaukee?</h2>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card" data-feature="realtime">
                     <div class="feature-icon feature-icon-blue">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                     </div>
                     <h3>Real-Time Updates</h3>
-                    <p>Get live traffic information and travel times updated continuously throughout the day.</p>
+                    <p>Get live traffic information and travel times updated <span class="feature-highlight">continuously</span> throughout the day.</p>
+                    <div class="feature-demo">
+                        <div class="demo-pulse"></div>
+                        <span class="demo-text">Live Data</span>
+                    </div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" data-feature="favorites">
                     <div class="feature-icon feature-icon-orange">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                     </div>
                     <h3>Favorite Routes</h3>
-                    <p>Save your frequently traveled routes for quick access and simplified navigation.</p>
+                    <p>Save your frequently traveled routes for <span class="feature-highlight">quick access</span> and simplified navigation.</p>
+                    <div class="feature-demo">
+                        <div class="demo-stars">
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                            <span class="star">⭐</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon feature-icon-green">
@@ -164,27 +193,65 @@
         <div class="container">
             <h2 class="section-title">See Travel Times Milwaukee in Action</h2>
             <p class="section-subtitle">Explore the app's intuitive interface and powerful features</p>
-            <div class="screenshots-grid">
-                <div class="screenshot-item">
-                    <div class="screenshot-frame">
-                        <img src="assets/IMG_1586.png" alt="Travel Times Milwaukee - Main Interface" loading="lazy">
+            
+            <!-- Screenshot Carousel -->
+            <div class="screenshot-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="screenshot-track">
+                        <div class="screenshot-slide active">
+                            <div class="device-frame">
+                                <div class="device-screen">
+                                    <img src="assets/IMG_1586.png" alt="Travel Times Milwaukee - Main Interface" loading="lazy">
+                                </div>
+                                <div class="device-reflection"></div>
+                            </div>
+                            <div class="slide-content">
+                                <h3>Main Interface</h3>
+                                <p>Clean, organized view of all freeway routes with <span class="text-highlight">real-time</span> travel times</p>
+                            </div>
+                        </div>
+                        <div class="screenshot-slide">
+                            <div class="device-frame">
+                                <div class="device-screen">
+                                    <img src="assets/IMG_1587.png" alt="Travel Times Milwaukee - Route Details" loading="lazy">
+                                </div>
+                                <div class="device-reflection"></div>
+                            </div>
+                            <div class="slide-content">
+                                <h3>Route Details</h3>
+                                <p>Detailed information about specific routes including <span class="text-highlight">delays and congestion</span></p>
+                            </div>
+                        </div>
+                        <div class="screenshot-slide">
+                            <div class="device-frame">
+                                <div class="device-screen">
+                                    <img src="assets/IMG_1588.png" alt="Travel Times Milwaukee - Favorites" loading="lazy">
+                                </div>
+                                <div class="device-reflection"></div>
+                            </div>
+                            <div class="slide-content">
+                                <h3>Favorite Routes</h3>
+                                <p>Quick access to your most <span class="text-highlight">frequently traveled routes</span></p>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Main Interface</h3>
-                    <p>Clean, organized view of all freeway routes with real-time travel times</p>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-frame">
-                        <img src="assets/IMG_1587.png" alt="Travel Times Milwaukee - Route Details" loading="lazy">
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev-btn" id="prev-btn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </button>
+                        <button class="carousel-btn next-btn" id="next-btn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </button>
                     </div>
-                    <h3>Route Details</h3>
-                    <p>Detailed information about specific routes including delays and congestion</p>
-                </div>
-                <div class="screenshot-item">
-                    <div class="screenshot-frame">
-                        <img src="assets/IMG_1588.png" alt="Travel Times Milwaukee - Favorites" loading="lazy">
+                    <div class="carousel-indicators">
+                        <button class="indicator active" data-slide="0"></button>
+                        <button class="indicator" data-slide="1"></button>
+                        <button class="indicator" data-slide="2"></button>
                     </div>
-                    <h3>Favorite Routes</h3>
-                    <p>Quick access to your most frequently traveled routes</p>
                 </div>
             </div>
         </div>
@@ -253,9 +320,44 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
-                <h2>About Travel Times Milwaukee</h2>
-                <p>Travel Times Milwaukee provides comprehensive traffic and travel times information for travelers in the Milwaukee area. Our app offers real-time data from the Wisconsin Department of Transportation to help you make informed decisions about your daily commute.</p>
-                <p>The default view provides a list of all freeway routes, and tapping on a route gives you detailed information about travel times and any delays. You can also save your frequently visited routes to favorites for quick access.</p>
+                <div class="about-visual">
+                    <div class="journey-timeline">
+                        <div class="timeline-step active">
+                            <div class="step-icon">🏠</div>
+                            <div class="step-label">Home</div>
+                        </div>
+                        <div class="timeline-connection"></div>
+                        <div class="timeline-step">
+                            <div class="step-icon">📱</div>
+                            <div class="step-label">Check App</div>
+                        </div>
+                        <div class="timeline-connection"></div>
+                        <div class="timeline-step">
+                            <div class="step-icon">🛣️</div>
+                            <div class="step-label">Best Route</div>
+                        </div>
+                        <div class="timeline-connection"></div>
+                        <div class="timeline-step">
+                            <div class="step-icon">⏰</div>
+                            <div class="step-label">Save Time</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2>About Travel Times Milwaukee</h2>
+                    <p>Travel Times Milwaukee provides <span class="text-highlight">comprehensive traffic and travel times</span> information for travelers in the Milwaukee area. Our app offers real-time data from the Wisconsin Department of Transportation to help you make informed decisions about your daily commute.</p>
+                    <p>The default view provides a list of all freeway routes, and tapping on a route gives you detailed information about travel times and any delays. You can also save your <span class="text-highlight">frequently visited routes to favorites</span> for quick access.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Real-time Data</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">All</div>
+                            <div class="stat-label">Major Routes</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

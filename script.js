@@ -102,6 +102,22 @@ window.addEventListener('scroll', function() {
 // Add loading animation to page
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
+    
+    // Trigger hero animations
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        heroContent.style.opacity = '1';
+        heroContent.style.transform = 'translateY(0)';
+    }
+    
+    // Stagger feature card animations
+    const featureCards = document.querySelectorAll('.feature-card');
+    featureCards.forEach((card, index) => {
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
 });
 
 // Track download button clicks with security validation
@@ -183,4 +199,168 @@ style.textContent = `
 // Safely append style to head
 if (document.head) {
     document.head.appendChild(style);
-} 
+}
+
+// Screenshot Carousel Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('screenshot-track');
+    const slides = document.querySelectorAll('.screenshot-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    
+    let currentSlide = 0;
+    
+    function updateCarousel() {
+        // Update slides
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Update track position
+        if (track) {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateCarousel();
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        updateCarousel();
+    }
+    
+    // Event listeners
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextSlide);
+    }
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevSlide);
+    }
+    
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            currentSlide = index;
+            updateCarousel();
+        });
+    });
+    
+    // Auto-play carousel
+    setInterval(nextSlide, 5000);
+    
+    // Initialize carousel
+    updateCarousel();
+});
+
+// Enhanced Feature Card Interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const featureCards = document.querySelectorAll('.feature-card');
+    
+    featureCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            // Add glow effect
+            const feature = this.getAttribute('data-feature');
+            if (feature === 'realtime') {
+                this.style.boxShadow = '0 20px 40px rgba(0, 122, 255, 0.3)';
+            } else if (feature === 'favorites') {
+                this.style.boxShadow = '0 20px 40px rgba(255, 107, 53, 0.3)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '';
+        });
+    });
+});
+
+// Enhanced Timeline Animation
+document.addEventListener('DOMContentLoaded', function() {
+    const timelineSteps = document.querySelectorAll('.timeline-step');
+    
+    const observerOptions = {
+        threshold: 0.8,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const timelineObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate timeline steps in sequence
+                timelineSteps.forEach((step, index) => {
+                    setTimeout(() => {
+                        step.style.opacity = '1';
+                        step.style.transform = 'translateX(0)';
+                        
+                        // Add active class to first step
+                        if (index === 0) {
+                            step.classList.add('active');
+                        }
+                    }, index * 200);
+                });
+            }
+        });
+    }, observerOptions);
+    
+    const timeline = document.querySelector('.journey-timeline');
+    if (timeline) {
+        // Initially hide steps
+        timelineSteps.forEach(step => {
+            step.style.opacity = '0';
+            step.style.transform = 'translateX(-50px)';
+            step.style.transition = 'all 0.6s ease';
+        });
+        
+        timelineObserver.observe(timeline);
+    }
+});
+
+// Floating Elements Animation Enhancement
+document.addEventListener('DOMContentLoaded', function() {
+    const floatingIcons = document.querySelectorAll('.floating-icon');
+    
+    // Add random movement to floating icons
+    floatingIcons.forEach((icon, index) => {
+        setInterval(() => {
+            const randomX = (Math.random() - 0.5) * 20;
+            const randomY = (Math.random() - 0.5) * 20;
+            icon.style.transform = `translateX(${randomX}px) translateY(${randomY}px) rotate(${Math.random() * 10}deg)`;
+        }, 3000 + index * 500);
+    });
+});
+
+// Enhanced Scroll Animations
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
+    
+    // Enhanced parallax for hero background
+    const heroBackground = document.querySelector('.hero-background');
+    if (heroBackground) {
+        heroBackground.style.transform = `translateY(${rate}px)`;
+    }
+    
+    // Floating shapes parallax
+    const shapes = document.querySelectorAll('.shape');
+    shapes.forEach((shape, index) => {
+        const speed = 0.2 + (index * 0.1);
+        const yPos = -(scrolled * speed);
+        shape.style.transform = `translateY(${yPos}px) rotate(${scrolled * 0.1}deg)`;
+    });
+    
+    // Phone mockup gentle parallax
+    const phoneScreen = document.querySelector('.phone-screen');
+    if (phoneScreen) {
+        const parallaxRate = scrolled * 0.1;
+        phoneScreen.style.transform = `translateY(${parallaxRate}px)`;
+    }
+}); 
