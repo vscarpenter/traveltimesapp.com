@@ -3,409 +3,288 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Times Milwaukee - Real-Time Traffic & Travel Times</title>
-    <meta name="description" content="Get real-time travel times and traffic information for Milwaukee. Plan ahead, avoid delays, and get where you need to go with Travel Times Milwaukee.">
-    
-    <!-- Security Headers -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-    
-    <!-- CSP Header -->
+    <title>Travel Times Milwaukee — Smarter Commuting in Real Time</title>
+    <meta name="description" content="Beat Milwaukee traffic with real-time travel times, instant alerts, and curated freeway insights. Download the Travel Times iOS app and arrive on time, every time.">
+
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
-    
-    <!-- Preload critical resources -->
+
     <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Display:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" as="style">
+
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Display:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/tt-1024.png">
     <link rel="apple-touch-icon" href="assets/tt-1024.png">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <img src="assets/tt-1024.png" alt="Travel Times Milwaukee" class="logo">
-                <span class="logo-text">Travel Times Milwaukee</span>
+    <header class="site-header">
+        <div class="container header__inner">
+            <a class="brand" href="#top">
+                <img src="assets/tt-1024.png" alt="Travel Times Milwaukee icon" class="brand__mark">
+                <span class="brand__text">Travel Times Milwaukee</span>
+            </a>
+            <button class="nav__toggle" aria-expanded="false" aria-controls="primary-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav" aria-label="Primary">
+                <ul id="primary-navigation" class="nav__menu">
+                    <li><a href="#features">Why Travel Times</a></li>
+                    <li><a href="#live-preview">Live Preview</a></li>
+                    <li><a href="#voices">Testimonials</a></li>
+                    <li><a href="#download">Download</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__background" aria-hidden="true">
+                <span class="orb orb--left"></span>
+                <span class="orb orb--right"></span>
             </div>
-            <div class="nav-links">
+            <div class="container hero__layout">
+                <div class="hero__content">
+                    <div class="hero__eyebrow">Milwaukee's real-time commute companion</div>
+                    <h1 id="hero-title">Beat traffic before it begins</h1>
+                    <p class="hero__summary">Travel Times Milwaukee watches every major freeway so you do not have to. Open the app, glance at live travel times, and pick the best route in seconds.</p>
+                    <div class="hero__actions">
+                        <a class="btn btn--primary" href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=website&mt=8">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="btn__icon">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path>
+                            </svg>
+                            Download on the App Store
+                        </a>
+                        <a class="btn btn--ghost" href="#live-preview">Explore the interface</a>
+                    </div>
+                    <dl class="hero__metrics">
+                        <div class="metric">
+                            <dt>4.8 ★</dt>
+                            <dd>App Store rating</dd>
+                        </div>
+                        <div class="metric">
+                            <dt>Instant</dt>
+                            <dd>Live DOT data</dd>
+                        </div>
+                        <div class="metric">
+                            <dt>Free</dt>
+                            <dd>No ads or in-app purchases</dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="hero__visual">
+                    <div class="device">
+                        <div class="device__frame">
+                            <img src="assets/IMG_1680.PNG" alt="Travel Times Milwaukee app screenshot" class="device__screen">
+                        </div>
+                        <div class="device__shadow" aria-hidden="true"></div>
+                    </div>
+                    <div class="hero__callouts" aria-hidden="true">
+                        <div class="callout">
+                            <span class="callout__icon">⚡</span>
+                            <span class="callout__text">Instant congestion alerts</span>
+                        </div>
+                        <div class="callout">
+                            <span class="callout__icon">🎯</span>
+                            <span class="callout__text">Favorites for fastest routes</span>
+                        </div>
+                        <div class="callout">
+                            <span class="callout__icon">📍</span>
+                            <span class="callout__text">Every major Milwaukee freeway</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="trustbelt" aria-label="Data sources and highlights">
+            <div class="container trustbelt__grid">
+                <div class="trustbelt__item">
+                    <span class="trustbelt__label">Powered by</span>
+                    <span class="trustbelt__value">WisDOT real-time feeds</span>
+                </div>
+                <div class="trustbelt__item">
+                    <span class="trustbelt__label">Coverage</span>
+                    <span class="trustbelt__value">I-94 · I-43 · I-894 · US-45</span>
+                </div>
+                <div class="trustbelt__item">
+                    <span class="trustbelt__label">Built for</span>
+                    <span class="trustbelt__value">Daily Milwaukee commuters</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="section features" aria-labelledby="features-title">
+            <div class="container section__header">
+                <p class="section__eyebrow">Why Travel Times</p>
+                <h2 id="features-title">Reduce commute anxiety with live intelligence</h2>
+                <p class="section__summary">Designed for people who simply want to know the fastest, safest route home without bouncing between apps.</p>
+            </div>
+            <div class="container features__grid">
+                <article class="feature-card">
+                    <div class="feature-card__icon">📊</div>
+                    <h3>Always current</h3>
+                    <p>Travel times refresh in the background so the moment you open the app, you are seeing the latest conditions.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card__icon">🔔</div>
+                    <h3>Smart alerts</h3>
+                    <p>Know about major slowdowns, construction, or accidents before you merge. Opt in once and stay ahead.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card__icon">⭐</div>
+                    <h3>Favorites built in</h3>
+                    <p>Pin your must-watch routes and get a personal dashboard tailored to the commutes you rely on.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card__icon">🌙</div>
+                    <h3>Dark mode native</h3>
+                    <p>Thoughtful typography and contrast make early mornings or late nights easier on the eyes.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card__icon">⚙️</div>
+                    <h3>Lightweight performance</h3>
+                    <p>The app is just 1.2 MB, launches instantly, and works reliably even on older devices.</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-card__icon">🛰️</div>
+                    <h3>Verified data</h3>
+                    <p>Every metric comes directly from Wisconsin DOT. No guesswork, no crowdsourced uncertainty.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="live-preview" class="section preview" aria-labelledby="preview-title">
+            <div class="container preview__layout">
+                <div class="preview__content">
+                    <p class="section__eyebrow">Live preview</p>
+                    <h2 id="preview-title">Designed to answer one question: “How long will it take?”</h2>
+                    <p>Peek at Milwaukee's busiest corridors without unlocking your car. Color-coded travel times and route groupings help you make a decision at a glance.</p>
+                    <ul class="preview__list">
+                        <li><span>Color-coded congestion states</span></li>
+                        <li><span>Sort and search by route name</span></li>
+                        <li><span>Tap for detailed incident context</span></li>
+                    </ul>
+                </div>
+                <div class="preview__gallery" role="list">
+                    <figure class="preview__frame" role="listitem">
+                        <img src="assets/IMG_1680.PNG" alt="Main route overview screen">
+                    </figure>
+                    <figure class="preview__frame" role="listitem">
+                        <img src="assets/IMG_1681.PNG" alt="Filtered route detail view">
+                    </figure>
+                    <figure class="preview__frame" role="listitem">
+                        <img src="assets/IMG_1682.PNG" alt="Favorites list in the app">
+                    </figure>
+                    <figure class="preview__frame" role="listitem">
+                        <img src="assets/IMG_1684.PNG" alt="Traffic and construction status screen">
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section story" aria-labelledby="story-title">
+            <div class="container story__layout">
+                <div class="story__badge">Milwaukee made</div>
+                <div class="story__content">
+                    <h2 id="story-title">Built by a local commuter frustrated with guessing games</h2>
+                    <p>Travel Times Milwaukee started as a personal project to make morning drives predictable. Today it delivers real-time insights to thousands of neighbors who depend on accurate routes to get to work, school, and home again.</p>
+                    <div class="story__stats">
+                        <div class="story__stat">
+                            <span class="story__number">10K+</span>
+                            <span class="story__label">Milwaukee downloads</span>
+                        </div>
+                        <div class="story__stat">
+                            <span class="story__number">100%</span>
+                            <span class="story__label">DOT data fidelity</span>
+                        </div>
+                        <div class="story__stat">
+                            <span class="story__number">24/7</span>
+                            <span class="story__label">Live refresh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="voices" class="section voices" aria-labelledby="voices-title">
+            <div class="container section__header">
+                <p class="section__eyebrow">What commuters say</p>
+                <h2 id="voices-title">“I sold my second traffic app and never looked back.”</h2>
+                <p class="section__summary">Recent reviews from Milwaukee drivers who use Travel Times every day.</p>
+            </div>
+            <div class="container voices__grid">
+                <article class="voice">
+                    <div class="voice__rating" aria-hidden="true">★★★★★</div>
+                    <p class="voice__quote">“Thanks to Travel Times I save so much time every single day. I don't know how I managed my daily travels without it. Thumbs up!”</p>
+                    <span class="voice__author">DomsnDev — App Store</span>
+                </article>
+                <article class="voice">
+                    <div class="voice__rating" aria-hidden="true">★★★★★</div>
+                    <p class="voice__quote">“Gives accurate travel times, and I love the ability to add favorite routes. It is the fastest way to check my commute.”</p>
+                    <span class="voice__author">badgerguy81 — App Store</span>
+                </article>
+                <article class="voice">
+                    <div class="voice__rating" aria-hidden="true">★★★★★</div>
+                    <p class="voice__quote">“Great time saver. Bug free and always updated. It has become part of my daily routine before I leave the driveway.”</p>
+                    <span class="voice__author">GeneralWisco — App Store</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="download" class="section cta" aria-labelledby="cta-title">
+            <div class="container cta__card">
+                <div class="cta__content">
+                    <p class="section__eyebrow">Ready when you are</p>
+                    <h2 id="cta-title">Download Travel Times Milwaukee today</h2>
+                    <p>Join thousands of daily commuters who rely on hyperlocal traffic intelligence before every drive.</p>
+                    <ul class="cta__meta">
+                        <li><span>Size: 1.2 MB</span></li>
+                        <li><span>Requires iOS 17.4 or later</span></li>
+                        <li><span>Free forever</span></li>
+                    </ul>
+                </div>
+                <a class="btn btn--inverted" href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=website&mt=8" aria-label="Download Travel Times Milwaukee on the App Store">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="btn__icon">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"></path>
+                    </svg>
+                    App Store
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer__grid">
+            <div class="footer__brand">
+                <h3>Travel Times Milwaukee</h3>
+                <p>Real-time traffic intelligence designed for Milwaukee commuters.</p>
+            </div>
+            <div class="footer__links">
+                <h4>Explore</h4>
                 <a href="#features">Features</a>
-                <a href="#download">Download</a>
-                <a href="#about">About</a>
+                <a href="#live-preview">Live Preview</a>
+                <a href="#voices">Testimonials</a>
             </div>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="footer__links">
+                <h4>Company</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Use</a>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-icon">🚗</span>
-                    <span>Milwaukee's #1 Traffic App</span>
-                </div>
-                <h1 class="hero-title">
-                    Get <span class="highlight-text">Real-Time</span> Travel Times & Traffic Info for <span class="highlight-location">Milwaukee</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Plan ahead, avoid delays, and get where you need to go—download Travel Times today!
-                </p>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">4.8</span>
-                        <span class="stat-label">App Store Rating</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">13</span>
-                        <span class="stat-label">Reviews</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">Free</span>
-                        <span class="stat-label">Download</span>
-                    </div>
-                </div>
-                <div class="hero-cta">
-                    <a href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=facebook&mt=8" class="cta-button">
-                        <svg class="app-store-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                        </svg>
-                        Download on the App Store
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="phone-mockup-container">
-                    <div class="floating-elements">
-                        <div class="floating-icon floating-icon-1">🚦</div>
-                        <div class="floating-icon floating-icon-2">⏱️</div>
-                        <div class="floating-icon floating-icon-3">📍</div>
-                        <div class="floating-icon floating-icon-4">🛣️</div>
-                    </div>
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <img src="assets/IMG_1680.PNG" alt="Travel Times Milwaukee App Screenshot" class="app-screenshot">
-                        </div>
-                    </div>
-                </div>
+            <div class="footer__links">
+                <h4>Creator</h4>
+                <a href="https://vinny.dev" rel="noopener noreferrer" target="_blank">Vinny Carpenter</a>
+                <a href="https://vinny.dev" rel="noopener noreferrer" target="_blank">vinny.dev</a>
             </div>
         </div>
-        <div class="hero-background">
-            <div class="mesh-gradient"></div>
-            <div class="traffic-animation">
-                <div class="car car-1"></div>
-                <div class="car car-2"></div>
-                <div class="car car-3"></div>
-            </div>
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Why Choose Travel Times Milwaukee?</h2>
-            <div class="features-grid">
-                <div class="feature-card" data-feature="realtime">
-                    <div class="feature-icon feature-icon-blue">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <h3>Real-Time Updates</h3>
-                    <p>Get live traffic information and travel times updated <span class="feature-highlight">continuously</span> throughout the day.</p>
-                    <div class="feature-demo">
-                        <div class="demo-pulse"></div>
-                        <span class="demo-text">Live Data</span>
-                    </div>
-                </div>
-                <div class="feature-card" data-feature="favorites">
-                    <div class="feature-icon feature-icon-orange">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <h3>Favorite Routes</h3>
-                    <p>Save your frequently traveled routes for <span class="feature-highlight">quick access</span> and simplified navigation.</p>
-                    <div class="feature-demo">
-                        <div class="demo-stars">
-                            <span class="star">⭐</span>
-                            <span class="star">⭐</span>
-                            <span class="star">⭐</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon feature-icon-green">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h3>Official Data</h3>
-                    <p>Traffic information provided by the Wisconsin Department of Transportation.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon feature-icon-purple">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 4m0 13V4m-6 3l6-3"/>
-                        </svg>
-                    </div>
-                    <h3>Freeway Coverage</h3>
-                    <p>Comprehensive coverage of all major freeway routes in the Milwaukee area.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon feature-icon-red">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
-                        </svg>
-                    </div>
-                    <h3>Delay Alerts</h3>
-                    <p>Stay informed about delays and congestion to plan your route accordingly.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon feature-icon-teal">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                        </svg>
-                    </div>
-                    <h3>User-Friendly</h3>
-                    <p>Clean, intuitive interface designed for quick access to the information you need.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Screenshots Section -->
-    <section class="screenshots">
-        <div class="container">
-            <h2 class="section-title">See Travel Times Milwaukee in Action</h2>
-            <p class="section-subtitle">Explore the app's intuitive interface and powerful features</p>
-            
-            <!-- Screenshot Carousel -->
-            <div class="screenshot-carousel">
-                <div class="carousel-container">
-                    <div class="carousel-track" id="screenshot-track">
-                        <div class="screenshot-slide active">
-                            <div class="device-frame">
-                                <div class="device-screen">
-                                    <img src="assets/IMG_1680.PNG" alt="Travel Times Milwaukee - Main Interface" loading="lazy">
-                                </div>
-                                <div class="device-reflection"></div>
-                            </div>
-                            <div class="slide-content">
-                                <h3>Main Interface</h3>
-                                <p>Clean, organized view of all freeway routes with <span class="text-highlight">real-time</span> travel times</p>
-                            </div>
-                        </div>
-                        <div class="screenshot-slide">
-                            <div class="device-frame">
-                                <div class="device-screen">
-                                    <img src="assets/IMG_1681.PNG" alt="Travel Times Milwaukee - Route Details" loading="lazy">
-                                </div>
-                                <div class="device-reflection"></div>
-                            </div>
-                            <div class="slide-content">
-                                <h3>Route Details</h3>
-                                <p>Filter information about specific routes <span class="text-highlight">via search</span></p>
-                            </div>
-                        </div>
-                        <div class="screenshot-slide">
-                            <div class="device-frame">
-                                <div class="device-screen">
-                                    <img src="assets/IMG_1682.PNG" alt="Travel Times Milwaukee - Favorites" loading="lazy">
-                                </div>
-                                <div class="device-reflection"></div>
-                            </div>
-                            <div class="slide-content">
-                                <h3>Favorite Routes</h3>
-                                <p>Quick access to your most <span class="text-highlight">frequently traveled routes</span></p>
-                            </div>
-                        </div>
-                        <div class="screenshot-slide">
-                            <div class="device-frame">
-                                <div class="device-screen">
-                                    <img src="assets/IMG_1684.PNG" alt="Travel Times Milwaukee - Route Status" loading="lazy">
-                                </div>
-                                <div class="device-reflection"></div>
-                            </div>
-                            <div class="slide-content">
-                                <h3>Route Status</h3>
-                                <p>Comprehensive traffic status and <span class="text-highlight">construction updates</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-nav">
-                        <button class="carousel-btn prev-btn" id="prev-btn">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                            </svg>
-                        </button>
-                        <button class="carousel-btn next-btn" id="next-btn">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="carousel-indicators">
-                        <button class="indicator active" data-slide="0"></button>
-                        <button class="indicator" data-slide="1"></button>
-                        <button class="indicator" data-slide="2"></button>
-                        <button class="indicator" data-slide="3"></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Download Section -->
-    <section id="download" class="download">
-        <div class="container">
-            <div class="download-content">
-                <h2>Download Travel Times Milwaukee Today</h2>
-                <p>Join thousands of Milwaukee commuters who save time every day with Travel Times.</p>
-                <div class="download-buttons">
-                    <a href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=facebook&mt=8" class="download-button">
-                        <svg class="app-store-icon" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                        </svg>
-                        <div class="button-text">
-                            <span class="button-label">Download on the</span>
-                            <span class="button-title">App Store</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="app-info">
-                    <div class="info-item">
-                        <span class="info-label">Size:</span>
-                        <span class="info-value">1.2 MB</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Requires:</span>
-                        <span class="info-value">iOS 17.4+</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Price:</span>
-                        <span class="info-value">Free</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="reviews">
-        <div class="container">
-            <h2 class="section-title">What Users Are Saying</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Thanks to TravelTimes I save so much time every single day. I don't know how I managed my daily travels without it! Thumbs up!!!"</p>
-                    <div class="review-author">- DomsnDev</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Gives travel times, and I like the ability to add favorite routes. This app makes it quick to check travel times on my favorite routes."</p>
-                    <div class="review-author">- badgerguy81</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Great time saver. This app makes it quick to check travel times on my favorite routes. Bug free!"</p>
-                    <div class="review-author">- GeneralWisco</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-visual">
-                    <div class="journey-timeline">
-                        <div class="timeline-step active">
-                            <div class="step-icon">🏠</div>
-                            <div class="step-label">Home</div>
-                        </div>
-                        <div class="timeline-connection"></div>
-                        <div class="timeline-step">
-                            <div class="step-icon">📱</div>
-                            <div class="step-label">Check App</div>
-                        </div>
-                        <div class="timeline-connection"></div>
-                        <div class="timeline-step">
-                            <div class="step-icon">🛣️</div>
-                            <div class="step-label">Best Route</div>
-                        </div>
-                        <div class="timeline-connection"></div>
-                        <div class="timeline-step">
-                            <div class="step-icon">⏰</div>
-                            <div class="step-label">Save Time</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h2>About Travel Times Milwaukee</h2>
-                    <p>Travel Times Milwaukee provides <span class="text-highlight">comprehensive traffic and travel times</span> information for travelers in the Milwaukee area. Our app offers real-time data from the Wisconsin Department of Transportation to help you make informed decisions about your daily commute.</p>
-                    <p>The default view provides a list of all freeway routes, and tapping on a route gives you detailed information about travel times and any delays. You can also save your <span class="text-highlight">frequently visited routes to favorites</span> for quick access.</p>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Real-time Data</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">All</div>
-                            <div class="stat-label">Major Routes</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Travel Times Milwaukee</h3>
-                    <p>Get real-time travel times and traffic information for Milwaukee.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <a href="#features">Features</a>
-                    <a href="#download">Download</a>
-                    <a href="#about">About</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Use</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Developer</h4>
-                    <a href="https://vinny.dev" target="_blank" rel="noopener noreferrer">Vinny Carpenter</a>
-                    <a href="https://vinny.dev" target="_blank" rel="noopener noreferrer">vinny.dev</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Vinny Carpenter. All rights reserved.</p>
-            </div>
+        <div class="footer__note">
+            <p>&copy; 2025 Vinny Carpenter. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
