@@ -70,4 +70,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
         revealables.forEach(el => observer.observe(el));
     }
+
+    // Carousel functionality
+    const carousel = document.querySelector('.carousel');
+    if (carousel) {
+        const track = carousel.querySelector('.carousel__track');
+        const slides = carousel.querySelectorAll('.carousel__slide');
+        const prevBtn = carousel.querySelector('.carousel__btn--prev');
+        const nextBtn = carousel.querySelector('.carousel__btn--next');
+        const indicators = carousel.querySelectorAll('.carousel__indicator');
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        let autoPlayInterval;
+
+        const updateCarousel = () => {
+            const translateX = -currentSlide * 100;
+            track.style.transform = `translateX(${translateX}%)`;
+
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('carousel__indicator--active', index === currentSlide);
+            });
+        };
+
+        const goToSlide = (slideIndex) => {
+            currentSlide = slideIndex;
+            updateCarousel();
+            resetAutoPlay();
+        };
+
+        const nextSlide = () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        };
+
+        const prevSlide = () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        };
+
+        const startAutoPlay = () => {
+            if (!prefersReduced) {
+                autoPlayInterval = setInterval(nextSlide, 4000);
+            }
+        };
+
+        const stopAutoPlay = () => {
+            if (autoPlayInterval) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = null;
+            }
+        };
+
+        const resetAutoPlay = () => {
+            stopAutoPlay();
+            startAutoPlay();
+        };
+
+        // Event listeners
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoPlay();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoPlay();
+            });
+        }
+
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                goToSlide(index);
+            });
+        });
+
+        // Pause auto-play on hover
+        carousel.addEventListener('mouseenter', stopAutoPlay);
+        carousel.addEventListener('mouseleave', startAutoPlay);
+
+        // Handle keyboard navigation
+        carousel.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+                resetAutoPlay();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+                resetAutoPlay();
+            }
+        });
+
+        // Start auto-play
+        startAutoPlay();
+
+        // Handle visibility change (pause when tab is not visible)
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoPlay();
+            } else {
+                startAutoPlay();
+            }
+        });
+    }
 });

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(open:*)",
+      "Bash(mkdir:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npx:*)",
+      "Bash(npm run dev:*)",
+      "WebFetch(domain:apps.apple.com)",
+      "Bash(chmod:*)",
+      "Bash(npm run build:*)",
+      "Bash(./deploy.sh)",
+      "WebSearch"
+    ],
+    "deny": []
+  }
+}
