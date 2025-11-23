@@ -12,8 +12,22 @@
       "Bash(chmod:*)",
       "Bash(npm run build:*)",
       "Bash(./deploy.sh)",
-      "WebSearch"
+      "WebSearch",
+      "Skill(artifacts-builder)",
+      "Bash(bash:*)",
+      "Bash(pnpm run build:*)",
+      "Bash(find:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)"
     ],
     "deny": []
-  }
+  },
+  "enabledMcpjsonServers": [
+    "aws-core",
+    "aws-documentation",
+    "next-devtools",
+    "github"
+  ]
 }
