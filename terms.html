@@ -5,197 +5,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Use — Travel Times Milwaukee</title>
     <meta name="description" content="Understand the terms and conditions for using the Travel Times Milwaukee iOS app and website.">
-
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
-
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter+Display:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" as="style">
-
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Display:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/tt-1024.png">
     <link rel="apple-touch-icon" href="assets/tt-1024.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+    </style>
 </head>
-<body class="legal">
-    <header class="site-header">
-        <div class="container header__inner">
-            <a class="brand" href="index.html#top">
-                <img src="assets/tt-1024.png" alt="Travel Times Milwaukee icon" class="brand__mark">
-                <span class="brand__text">Travel Times Milwaukee</span>
-            </a>
-            <button class="nav__toggle" aria-expanded="false" aria-controls="primary-navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav" aria-label="Primary">
-                <ul id="primary-navigation" class="nav__menu">
-                    <li><a href="index.html#features">Why Travel Times</a></li>
-                    <li><a href="index.html#live-preview">Live Preview</a></li>
-                    <li><a href="index.html#voices">Testimonials</a></li>
-                    <li><a href="index.html#download">Download</a></li>
-                </ul>
-            </nav>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-screen">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl shadow-sm">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/tt-1024.png" alt="Travel Times Milwaukee" class="w-10 h-10 rounded-xl">
+                    <span class="font-bold text-lg md:text-xl text-slate-900">Travel Times MKE</span>
+                </a>
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="index.html#features" class="text-slate-700 hover:text-blue-600 transition-colors font-medium">Features</a>
+                    <a href="index.html#screenshots" class="text-slate-700 hover:text-blue-600 transition-colors font-medium">App</a>
+                    <a href="index.html#reviews" class="text-slate-700 hover:text-blue-600 transition-colors font-medium">Reviews</a>
+                    <a href="index.html" class="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-full font-semibold transition-all">Home</a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <main id="top">
-        <section class="legal-hero section" aria-labelledby="legal-title">
-            <div class="container legal-hero__inner">
-                <div class="legal-hero__eyebrow">Terms of Use</div>
-                <h1 id="legal-title">The ground rules for smarter commuting</h1>
-                <p class="legal-hero__summary">These terms explain how Travel Times Milwaukee keeps traffic insights accurate, safe, and respectful for every driver relying on the app.</p>
-                <div class="legal-hero__meta">Last updated January 2025</div>
+    <!-- Main Content -->
+    <main class="pt-32 pb-20">
+        <!-- Hero -->
+        <section class="pb-16">
+            <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 border border-blue-200 text-sm font-semibold mb-6">
+                    Terms of Use
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">The ground rules for smarter commuting</h1>
+                <p class="text-xl text-slate-600 mb-4">These terms explain how Travel Times Milwaukee keeps traffic insights accurate, safe, and respectful for every driver relying on the app.</p>
+                <p class="text-sm text-slate-500">Last updated January 2025</p>
             </div>
         </section>
 
-        <section class="section legal-section">
-            <div class="container legal-layout">
-                <aside class="legal-sidebar" aria-label="On this page">
-                    <nav class="legal-toc">
-                        <h2 class="legal-toc__title">Quick navigation</h2>
-                        <ul>
-                            <li><a href="#acceptance">Acceptance of terms</a></li>
-                            <li><a href="#service">Description of service</a></li>
-                            <li><a href="#license">Use license</a></li>
-                            <li><a href="#responsibilities">User responsibilities</a></li>
-                            <li><a href="#data">Data and information</a></li>
-                            <li><a href="#warranties">Disclaimer of warranties</a></li>
-                            <li><a href="#liability">Limitation of liability</a></li>
-                            <li><a href="#third-party">Third-party services</a></li>
-                            <li><a href="#intellectual">Intellectual property</a></li>
-                            <li><a href="#privacy">Privacy</a></li>
-                            <li><a href="#termination">Termination</a></li>
-                            <li><a href="#changes">Changes to terms</a></li>
-                            <li><a href="#law">Governing law</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </nav>
-                </aside>
+        <!-- Content -->
+        <section>
+            <div class="container mx-auto px-6 lg:px-8 max-w-4xl">
+                <div class="bg-white rounded-3xl shadow-lg border-2 border-slate-200 p-8 md:p-12 space-y-8">
 
-                <article class="legal-article">
-                    <section id="acceptance">
-                        <h2>Acceptance of terms</h2>
-                        <p>By downloading, installing, or using the Travel Times Milwaukee mobile application ("App") or accessing our website, you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, please do not use our App or website.</p>
-                    </section>
+                    <div id="acceptance">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Acceptance of terms</h2>
+                        <p class="text-slate-700 leading-relaxed">By downloading, installing, or using the Travel Times Milwaukee mobile application ("App") or accessing our website, you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, please do not use our App or website.</p>
+                    </div>
 
-                    <section id="service">
-                        <h2>Description of service</h2>
-                        <p>Travel Times Milwaukee provides real-time traffic and travel times information for the Milwaukee area. The App displays traffic data sourced from the Wisconsin Department of Transportation to help users plan their routes and avoid delays.</p>
-                    </section>
+                    <div id="service">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Description of service</h2>
+                        <p class="text-slate-700 leading-relaxed">Travel Times Milwaukee provides real-time traffic and travel times information for the Milwaukee area. The App displays traffic data sourced from the Wisconsin Department of Transportation to help users plan their routes and avoid delays.</p>
+                    </div>
 
-                    <section id="license">
-                        <h2>Use license</h2>
-                        <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes in accordance with these Terms.</p>
-                    </section>
+                    <div id="license">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Use license</h2>
+                        <p class="text-slate-700 leading-relaxed">We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes in accordance with these Terms.</p>
+                    </div>
 
-                    <section id="responsibilities">
-                        <h2>User responsibilities</h2>
-                        <p>When using Travel Times Milwaukee, you agree to:</p>
-                        <ul>
+                    <div id="responsibilities">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">User responsibilities</h2>
+                        <p class="text-slate-700 leading-relaxed mb-3">When using Travel Times Milwaukee, you agree to:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-slate-700">
                             <li>Use the App only for lawful purposes</li>
                             <li>Not attempt to reverse engineer, modify, or hack the App</li>
                             <li>Not use the App while driving unless it is safe to do so</li>
                             <li>Not rely solely on the App for navigation decisions</li>
                             <li>Comply with all applicable laws and regulations</li>
                         </ul>
-                    </section>
+                    </div>
 
-                    <section id="data">
-                        <h2>Data and information</h2>
-                        <p>The traffic information provided by the App is sourced from the Wisconsin Department of Transportation. While we strive to provide accurate and up-to-date information, we cannot guarantee the accuracy, completeness, or timeliness of the data.</p>
-                    </section>
+                    <div id="data">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Data and information</h2>
+                        <p class="text-slate-700 leading-relaxed">The traffic information provided by the App is sourced from the Wisconsin Department of Transportation. While we strive to provide accurate and up-to-date information, we cannot guarantee the accuracy, completeness, or timeliness of the data.</p>
+                    </div>
 
-                    <section id="warranties">
-                        <h2>Disclaimer of warranties</h2>
-                        <p>THE APP AND WEBSITE ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO:</p>
-                        <ul>
+                    <div id="warranties">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Disclaimer of warranties</h2>
+                        <p class="text-slate-700 leading-relaxed mb-3">THE APP AND WEBSITE ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-slate-700">
                             <li>Accuracy of traffic information</li>
                             <li>Uninterrupted or error-free operation</li>
                             <li>Compatibility with all devices</li>
                             <li>Security of data transmission</li>
                         </ul>
-                    </section>
+                    </div>
 
-                    <section id="liability">
-                        <h2>Limitation of liability</h2>
-                        <p>IN NO EVENT SHALL WE BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATING TO YOUR USE OF THE APP OR WEBSITE.</p>
-                    </section>
+                    <div id="liability">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Limitation of liability</h2>
+                        <p class="text-slate-700 leading-relaxed">IN NO EVENT SHALL WE BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATING TO YOUR USE OF THE APP OR WEBSITE.</p>
+                    </div>
 
-                    <section id="third-party">
-                        <h2>Third-party services</h2>
-                        <p>The App is distributed through the Apple App Store and may be subject to Apple&apos;s terms and conditions. We are not responsible for the content or policies of third-party services.</p>
-                    </section>
+                    <div id="third-party">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Third-party services</h2>
+                        <p class="text-slate-700 leading-relaxed">The App is distributed through the Apple App Store and may be subject to Apple's terms and conditions. We are not responsible for the content or policies of third-party services.</p>
+                    </div>
 
-                    <section id="intellectual">
-                        <h2>Intellectual property</h2>
-                        <p>The App, website, and all content are owned by Vinny Carpenter and are protected by copyright, trademark, and other intellectual property laws.</p>
-                    </section>
+                    <div id="intellectual">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Intellectual property</h2>
+                        <p class="text-slate-700 leading-relaxed">The App, website, and all content are owned by Vinny Carpenter and are protected by copyright, trademark, and other intellectual property laws.</p>
+                    </div>
 
-                    <section id="privacy">
-                        <h2>Privacy</h2>
-                        <p>Your privacy is important to us. Please review our <a href="privacy.html">Privacy Policy</a>, which also governs your use of the App and website.</p>
-                    </section>
+                    <div id="privacy">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Privacy</h2>
+                        <p class="text-slate-700 leading-relaxed">Your privacy is important to us. Please review our <a href="privacy.html" class="text-blue-600 hover:text-blue-700 font-semibold">Privacy Policy</a>, which also governs your use of the App and website.</p>
+                    </div>
 
-                    <section id="termination">
-                        <h2>Termination</h2>
-                        <p>We may terminate or suspend your access to the App at any time, with or without cause, with or without notice.</p>
-                    </section>
+                    <div id="termination">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Termination</h2>
+                        <p class="text-slate-700 leading-relaxed">We may terminate or suspend your access to the App at any time, with or without cause, with or without notice.</p>
+                    </div>
 
-                    <section id="changes">
-                        <h2>Changes to terms</h2>
-                        <p>We reserve the right to modify these Terms at any time. We will notify users of significant changes by posting the updated Terms on our website.</p>
-                    </section>
+                    <div id="changes">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Changes to terms</h2>
+                        <p class="text-slate-700 leading-relaxed">We reserve the right to modify these Terms at any time. We will notify users of significant changes by posting the updated Terms on our website.</p>
+                    </div>
 
-                    <section id="law">
-                        <h2>Governing law</h2>
-                        <p>These Terms shall be governed by and construed in accordance with the laws of the state of Wisconsin, without regard to its conflict of law provisions.</p>
-                    </section>
+                    <div id="law">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Governing law</h2>
+                        <p class="text-slate-700 leading-relaxed">These Terms shall be governed by and construed in accordance with the laws of the state of Wisconsin, without regard to its conflict of law provisions.</p>
+                    </div>
 
-                    <section id="contact">
-                        <h2>Contact</h2>
-                        <p>If you have any questions about these Terms, please reach out:</p>
-                        <ul>
-                            <li><strong>Developer:</strong> <a href="https://vinny.dev" rel="noopener noreferrer" target="_blank">Vinny Carpenter</a></li>
-                            <li><strong>Website:</strong> <a href="https://vinny.dev" rel="noopener noreferrer" target="_blank">vinny.dev</a></li>
+                    <div id="contact">
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3">Contact</h2>
+                        <p class="text-slate-700 leading-relaxed mb-3">If you have any questions about these Terms, please reach out:</p>
+                        <ul class="list-disc pl-6 space-y-2 text-slate-700">
+                            <li><strong>Developer:</strong> <a href="https://vinny.dev" rel="noopener noreferrer" target="_blank" class="text-blue-600 hover:text-blue-700">Vinny Carpenter</a></li>
+                            <li><strong>Website:</strong> <a href="https://vinny.dev" rel="noopener noreferrer" target="_blank" class="text-blue-600 hover:text-blue-700">vinny.dev</a></li>
                         </ul>
-                    </section>
+                    </div>
 
-                    <a class="legal-back" href="index.html">← Back to home</a>
-                </article>
+                    <div class="pt-8 border-t border-slate-200">
+                        <a href="index.html" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                            Back to home
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer__grid">
-            <div class="footer__brand">
-                <h3>Travel Times Milwaukee</h3>
-                <p>Real-time traffic intelligence designed for Milwaukee commuters.</p>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-16 mt-20">
+        <div class="container mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="assets/tt-1024.png" alt="Travel Times Milwaukee" class="w-10 h-10 rounded-xl">
+                        <span class="font-bold text-lg text-white">Travel Times MKE</span>
+                    </div>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Real-time traffic intelligence for Milwaukee commuters.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Explore</h4>
+                    <div class="space-y-2">
+                        <a href="index.html#features" class="block text-sm hover:text-cyan-400 transition-colors">Features</a>
+                        <a href="index.html#screenshots" class="block text-sm hover:text-cyan-400 transition-colors">Screenshots</a>
+                        <a href="index.html#reviews" class="block text-sm hover:text-cyan-400 transition-colors">Reviews</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Legal</h4>
+                    <div class="space-y-2">
+                        <a href="privacy.html" class="block text-sm hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                        <a href="terms.html" class="block text-sm hover:text-cyan-400 transition-colors">Terms of Use</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Creator</h4>
+                    <div class="space-y-2">
+                        <a href="https://vinny.dev" class="block text-sm hover:text-cyan-400 transition-colors">Vinny Carpenter</a>
+                        <a href="https://vinny.dev" class="block text-sm hover:text-cyan-400 transition-colors">vinny.dev</a>
+                    </div>
+                </div>
             </div>
-            <div class="footer__links">
-                <h4>Explore</h4>
-                <a href="index.html#features">Features</a>
-                <a href="index.html#live-preview">Live Preview</a>
-                <a href="index.html#voices">Testimonials</a>
+
+            <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
+                © 2025 Vinny Carpenter. All rights reserved.
             </div>
-            <div class="footer__links">
-                <h4>Company</h4>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Use</a>
-            </div>
-            <div class="footer__links">
-                <h4>Creator</h4>
-                <a href="https://vinny.dev" rel="noopener noreferrer" target="_blank">Vinny Carpenter</a>
-                <a href="https://vinny.dev" rel="noopener noreferrer" target="_blank">vinny.dev</a>
-            </div>
-        </div>
-        <div class="footer__note">
-            <p>&copy; 2025 Vinny Carpenter. All rights reserved.</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
 # Travel Times Milwaukee - Modern Landing Page
 
-A beautifully crafted, modern landing page for the Travel Times Milwaukee iOS application. Built with cutting-edge design principles inspired by leading SaaS platforms like Miro, this website showcases the app's features through interactive elements, smooth animations, and a premium user experience.
+A beautifully crafted, modern landing page for the Travel Times Milwaukee iOS application. Built with cutting-edge design principles, this website showcases the app's features through interactive elements, smooth animations, and a premium user experience.
 
 ## 🎨 **Design Philosophy**
 
-This landing page features a **modern, Miro-inspired design** with:
+This landing page features a **modern, design** with:
 - **Clean typography** using Inter font with optimized OpenType features
 - **Sophisticated color palette** with gradients and subtle animations  
 - **Interactive elements** that respond to user engagement
