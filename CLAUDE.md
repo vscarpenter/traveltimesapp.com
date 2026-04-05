@@ -31,14 +31,27 @@ Static website landing page for Travel Times Milwaukee iOS app, deployed to AWS 
 - No sensitive data collection or third-party tracking
 
 ## Design System
-Uses Apple-inspired color palette defined in CSS custom properties:
-- Primary colors: `--primary-color` (#007aff), `--secondary-color` (#ff6b35)
-- Text hierarchy: `--text-primary`, `--text-secondary`, `--text-tertiary`
-- Gradients and shadows following Apple's design language
+"Warm Sunset Transit" theme with Mediterranean-inspired colors:
+
+### Color Palette
+- **Backgrounds**: Cream (#faf7f2), Sand (#f5efe6)
+- **Primary accent**: Terracotta (#e07a5f)
+- **CTA/Buttons**: Rust (#c45a3b)
+- **Highlights**: Amber (#f4a261)
+- **Success states**: Sage (#81b29a)
+- **Text**: Deep Forest (#3d405b)
+
+### Typography
+- **Display/Headlines**: Fraunces (variable serif)
+- **Body**: DM Sans (sans-serif)
+
+### CSS Custom Properties
+All colors, shadows, and spacing defined as CSS variables in `styles.css` for easy customization.
 
 ## Content Updates
 When updating app information:
-- App Store link: Lines 74, 200 in `index.html`
-- App stats: Lines 60-72 in `index.html` 
-- Screenshots: Replace files in `assets/` directory
-- Reviews: Lines 232-249 in `index.html`
+- App Store links: Search for `apps.apple.com` in `index.html`
+- Hero stats: `.hero-stat` elements in `index.html`
+- Screenshots: Replace PNG files in `assets/` directory
+- Reviews: `.testimonial-card` elements in `index.html`
+- Features: `.feature-card` elements in `index.html`

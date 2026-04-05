@@ -8,12 +8,260 @@
 
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="Travel Times Milwaukee — Smarter Commuting in Real Time">
+    <meta property="og:description" content="Beat Milwaukee traffic with real-time travel times for I-94, I-43, I-894, and US-45. Free iOS app powered by WisDOT data.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://traveltimesapp.com">
+    <meta property="og:image" content="https://traveltimesapp.com/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Travel Times Milwaukee">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Travel Times Milwaukee — Smarter Commuting in Real Time">
+    <meta name="twitter:description" content="Beat Milwaukee traffic with real-time travel times for I-94, I-43, I-894, and US-45. Free iOS app powered by WisDOT data.">
+    <meta name="twitter:image" content="https://traveltimesapp.com/assets/og-image.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Travel Times Milwaukee",
+      "operatingSystem": "iOS",
+      "applicationCategory": "TravelApplication",
+      "description": "Real-time travel times for Milwaukee freeways. Beat traffic with live data from WisDOT.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "10000"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Vinny Carpenter",
+        "url": "https://vinny.dev"
+      },
+      "fileSize": "1.2 MB"
+    }
+    </script>
+
     <link rel="icon" type="image/png" href="/assets/tt-1024.png">
     <link rel="apple-touch-icon" href="/assets/tt-1024.png">
     <script type="module" crossorigin src="/assets/index-CQjvO4Lc.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-DSjQVvxV.css">
+
+    <style>
+      /* === Fix 1: Touch target sizes (min 44px) === */
+
+      /* Nav links */
+      nav a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 16px;
+      }
+
+      /* Nav download button */
+      nav + button,
+      header button {
+        min-height: 44px;
+      }
+
+      /* Carousel prev/next arrows */
+      button.h-9.w-9,
+      button[class*="h-9 w-9"] {
+        min-width: 44px;
+        min-height: 44px;
+      }
+
+      /* Carousel dots — visual stays 8px, tap target becomes 44px */
+      button.w-2.h-2,
+      button[class*="w-2 h-2"] {
+        position: relative;
+        width: 8px;
+        height: 8px;
+      }
+      button.w-2.h-2::before,
+      button[class*="w-2 h-2"]::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 44px;
+        height: 44px;
+      }
+
+      /* Footer links */
+      footer a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      /* === Fix 2: Color contrast in dark sections === */
+
+      /* Screenshots section captions (slate-300 → slate-100) */
+      .bg-gradient-to-br.from-slate-900 p,
+      [class*="from-slate-900"] p {
+        color: #f1f5f9 !important; /* slate-100 */
+      }
+      [class*="from-slate-900"] h2 {
+        color: #ffffff !important;
+      }
+
+      /* Footer text contrast (slate-300/400 → slate-200) */
+      footer p {
+        color: #cbd5e1 !important; /* slate-300 minimum */
+      }
+      footer a {
+        color: #e2e8f0 !important; /* slate-200 */
+      }
+      footer a:hover {
+        color: #22d3ee !important; /* cyan-400, keep existing hover */
+      }
+
+      /* CTA section text */
+      [class*="from-blue-600"] p {
+        color: #dbeafe !important; /* blue-100 */
+      }
+
+      /* === Fix 3: prefers-reduced-motion === */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* === Fix 4: Body line-height === */
+      #root p {
+        line-height: 1.6;
+      }
+      #root .leading-relaxed {
+        line-height: 1.625; /* preserve existing relaxed where set */
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Post-render patches for the pre-built React bundle.
+      // Apply these fixes in source when rebuilding.
+      var APP_STORE_URL = 'https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=website&mt=8';
+
+      var observer = new MutationObserver(function() {
+        var root = document.getElementById('root');
+        if (!root || !root.firstChild) return;
+
+        // Fix A: Wrap content in <main> landmark
+        if (!document.querySelector('main')) {
+          var children = Array.from(root.firstChild.children || []);
+          var mainContent = children.filter(function(el) {
+            return el.tagName !== 'HEADER' && el.tagName !== 'FOOTER';
+          });
+          if (mainContent.length > 0) {
+            var main = document.createElement('main');
+            mainContent.forEach(function(el) { main.appendChild(el); });
+            var footer = root.querySelector('footer');
+            if (footer) {
+              footer.parentNode.insertBefore(main, footer);
+            } else {
+              root.firstChild.appendChild(main);
+            }
+          }
+        }
+
+        // Fix B: Label unnamed carousel buttons (aria-label)
+        var allButtons = root.querySelectorAll('button');
+        allButtons.forEach(function(btn) {
+          if (btn.getAttribute('aria-label')) return;
+          var text = btn.textContent.trim();
+          if (text) return;
+          var svg = btn.querySelector('svg');
+          if (svg) {
+            // Arrow buttons: check position relative to siblings
+            var parent = btn.parentElement;
+            var siblings = parent ? Array.from(parent.children) : [];
+            var idx = siblings.indexOf(btn);
+            btn.setAttribute('aria-label', idx === 0 ? 'Previous screenshot' : 'Next screenshot');
+          } else {
+            // Dot buttons: use index for label
+            var dotParent = btn.parentElement;
+            if (dotParent) {
+              var dots = Array.from(dotParent.children).filter(function(c) { return c.tagName === 'BUTTON'; });
+              var dotIdx = dots.indexOf(btn);
+              btn.setAttribute('aria-label', 'Go to screenshot ' + (dotIdx + 1));
+            }
+          }
+        });
+
+        // Fix 5: Footer headings — H4 → H3
+        var footerEl = root.querySelector('footer');
+        if (footerEl) {
+          footerEl.querySelectorAll('h4').forEach(function(h4) {
+            var h3 = document.createElement('h3');
+            h3.className = h4.className;
+            h3.innerHTML = h4.innerHTML;
+            h4.parentNode.replaceChild(h3, h4);
+          });
+        }
+
+        // Fix 6: Swap PNG images to WebP with <picture> elements
+        var supportsWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
+        root.querySelectorAll('img').forEach(function(img, i) {
+          // Add lazy loading to below-fold images
+          if (i > 0) img.setAttribute('loading', 'lazy');
+
+          // Wrap in <picture> with WebP source
+          if (supportsWebP && img.src.includes('IMG_') && img.src.endsWith('.png')) {
+            var picture = document.createElement('picture');
+            var source = document.createElement('source');
+            source.srcset = img.src.replace('.png', '.webp');
+            source.type = 'image/webp';
+            picture.appendChild(source);
+            img.parentNode.insertBefore(picture, img);
+            picture.appendChild(img);
+          }
+        });
+
+        // Fix 7: Convert Download buttons to <a> links
+        root.querySelectorAll('button').forEach(function(btn) {
+          if (btn.textContent.includes('Download on App Store')) {
+            var link = document.createElement('a');
+            link.href = APP_STORE_URL;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.className = btn.className;
+            link.innerHTML = btn.innerHTML;
+            link.setAttribute('role', 'button');
+            btn.parentNode.replaceChild(link, btn);
+          }
+        });
+
+        // Fix C: Update copyright year
+        if (footerEl) {
+          var walker = document.createTreeWalker(footerEl, NodeFilter.SHOW_TEXT);
+          while (walker.nextNode()) {
+            if (walker.currentNode.textContent.includes('© 2025')) {
+              walker.currentNode.textContent = walker.currentNode.textContent.replace('© 2025', '© 2026');
+            }
+          }
+        }
+
+        observer.disconnect();
+      });
+      observer.observe(document.getElementById('root'), { childList: true, subtree: true });
+    </script>
   </body>
 </html>

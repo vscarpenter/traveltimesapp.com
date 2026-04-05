@@ -45,8 +45,16 @@ echo -e "${YELLOW}📤 Uploading files to S3...${NC}"
 aws s3 sync . s3://$BUCKET_NAME \
     --exclude "*.sh" \
     --exclude ".git/*" \
+    --exclude ".claude/*" \
+    --exclude ".vscode/*" \
+    --exclude ".DS_Store" \
+    --exclude ".gitignore" \
+    --exclude ".mcp.json" \
     --exclude "README.md" \
-    --exclude "deploy.sh" \
+    --exclude "SECURITY.md" \
+    --exclude "CLAUDE.md" \
+    --exclude "TravelTimes_PRD.html" \
+    --exclude "current-site-*.png" \
     --cache-control "max-age=31536000,public" \
     --delete
 
