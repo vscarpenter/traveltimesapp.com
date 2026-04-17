@@ -3,265 +3,617 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Travel Times Milwaukee — Smarter Commuting in Real Time</title>
-    <meta name="description" content="Beat Milwaukee traffic with real-time travel times, instant alerts, and curated freeway insights. Download the Travel Times iOS app and arrive on time, every time.">
-
+    <title>Travel Times Milwaukee — Real-time commute intelligence for MKE freeways</title>
+    <meta name="description" content="Real-time travel times for every major Milwaukee freeway. Now with Apple Watch, Live Activities, and iCloud sync. Free iOS app powered by WisDOT. No ads, no tracking.">
+    <meta name="theme-color" content="#4f46e5">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="color-scheme" content="light">
+
+    <link rel="canonical" href="https://traveltimesapp.com/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Travel Times Milwaukee — Smarter Commuting in Real Time">
-    <meta property="og:description" content="Beat Milwaukee traffic with real-time travel times for I-94, I-43, I-894, and US-45. Free iOS app powered by WisDOT data.">
+    <meta property="og:title" content="Travel Times Milwaukee — Real-time commute intelligence">
+    <meta property="og:description" content="Live travel times for Milwaukee freeways — now on Apple Watch and Live Activities. Free iOS app powered by WisDOT.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://traveltimesapp.com">
+    <meta property="og:url" content="https://traveltimesapp.com/">
     <meta property="og:image" content="https://traveltimesapp.com/assets/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Travel Times Milwaukee">
 
-    <!-- Twitter Card -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Travel Times Milwaukee — Smarter Commuting in Real Time">
-    <meta name="twitter:description" content="Beat Milwaukee traffic with real-time travel times for I-94, I-43, I-894, and US-45. Free iOS app powered by WisDOT data.">
+    <meta name="twitter:title" content="Travel Times Milwaukee — Real-time commute intelligence">
+    <meta name="twitter:description" content="Live Milwaukee travel times — now on Apple Watch and Live Activities. Free, powered by WisDOT.">
     <meta name="twitter:image" content="https://traveltimesapp.com/assets/og-image.png">
 
-    <!-- JSON-LD Structured Data -->
+    <!-- Structured data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Travel Times Milwaukee",
-      "operatingSystem": "iOS",
+      "operatingSystem": "iOS 17.4+",
       "applicationCategory": "TravelApplication",
-      "description": "Real-time travel times for Milwaukee freeways. Beat traffic with live data from WisDOT.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "10000"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Vinny Carpenter",
-        "url": "https://vinny.dev"
-      },
-      "fileSize": "1.2 MB"
+      "description": "Real-time travel times for Milwaukee freeways, powered by Wisconsin DOT live data. Apple Watch, Live Activities, Dynamic Island, and iCloud sync.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "13" },
+      "author": { "@type": "Person", "name": "Vinny Carpenter", "url": "https://vinny.dev" },
+      "fileSize": "1.2 MB",
+      "featureList": [
+        "Real-time travel times for major Milwaukee freeways",
+        "Apple Watch app with complication support",
+        "Live Activities on Lock Screen and Dynamic Island",
+        "Active incidents grouped by severity",
+        "iCloud sync for favorite routes",
+        "Scheduled notifications for daily commutes",
+        "Share route status via iMessage, Mail, and more",
+        "Official Wisconsin DOT data source"
+      ]
     }
     </script>
 
     <link rel="icon" type="image/png" href="/assets/tt-1024.png">
     <link rel="apple-touch-icon" href="/assets/tt-1024.png">
-    <script type="module" crossorigin src="/assets/index-CQjvO4Lc.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DSjQVvxV.css">
 
-    <style>
-      /* === Fix 1: Touch target sizes (min 44px) === */
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap">
 
-      /* Nav links */
-      nav a {
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-        padding: 10px 16px;
-      }
-
-      /* Nav download button */
-      nav + button,
-      header button {
-        min-height: 44px;
-      }
-
-      /* Carousel prev/next arrows */
-      button.h-9.w-9,
-      button[class*="h-9 w-9"] {
-        min-width: 44px;
-        min-height: 44px;
-      }
-
-      /* Carousel dots — visual stays 8px, tap target becomes 44px */
-      button.w-2.h-2,
-      button[class*="w-2 h-2"] {
-        position: relative;
-        width: 8px;
-        height: 8px;
-      }
-      button.w-2.h-2::before,
-      button[class*="w-2 h-2"]::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 44px;
-        height: 44px;
-      }
-
-      /* Footer links */
-      footer a {
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-      }
-
-      /* === Fix 2: Color contrast in dark sections === */
-
-      /* Screenshots section captions (slate-300 → slate-100) */
-      .bg-gradient-to-br.from-slate-900 p,
-      [class*="from-slate-900"] p {
-        color: #f1f5f9 !important; /* slate-100 */
-      }
-      [class*="from-slate-900"] h2 {
-        color: #ffffff !important;
-      }
-
-      /* Footer text contrast (slate-300/400 → slate-200) */
-      footer p {
-        color: #cbd5e1 !important; /* slate-300 minimum */
-      }
-      footer a {
-        color: #e2e8f0 !important; /* slate-200 */
-      }
-      footer a:hover {
-        color: #22d3ee !important; /* cyan-400, keep existing hover */
-      }
-
-      /* CTA section text */
-      [class*="from-blue-600"] p {
-        color: #dbeafe !important; /* blue-100 */
-      }
-
-      /* === Fix 3: prefers-reduced-motion === */
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-          scroll-behavior: auto !important;
-        }
-      }
-
-      /* === Fix 4: Body line-height === */
-      #root p {
-        line-height: 1.6;
-      }
-      #root .leading-relaxed {
-        line-height: 1.625; /* preserve existing relaxed where set */
-      }
-    </style>
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <div id="root"></div>
-    <script>
-      // Post-render patches for the pre-built React bundle.
-      // Apply these fixes in source when rebuilding.
-      var APP_STORE_URL = 'https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=website&mt=8';
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-      var observer = new MutationObserver(function() {
-        var root = document.getElementById('root');
-        if (!root || !root.firstChild) return;
+    <header class="site-header" data-nav>
+      <div class="container nav">
+        <a class="brand" href="/" aria-label="Travel Times Milwaukee home">
+          <img src="/assets/tt-1024.png" alt="" width="36" height="36" decoding="async">
+          <span>Travel Times <em>MKE</em></span>
+        </a>
 
-        // Fix A: Wrap content in <main> landmark
-        if (!document.querySelector('main')) {
-          var children = Array.from(root.firstChild.children || []);
-          var mainContent = children.filter(function(el) {
-            return el.tagName !== 'HEADER' && el.tagName !== 'FOOTER';
-          });
-          if (mainContent.length > 0) {
-            var main = document.createElement('main');
-            mainContent.forEach(function(el) { main.appendChild(el); });
-            var footer = root.querySelector('footer');
-            if (footer) {
-              footer.parentNode.insertBefore(main, footer);
-            } else {
-              root.firstChild.appendChild(main);
-            }
-          }
-        }
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu" data-nav-toggle>
+          <span></span><span></span><span></span>
+        </button>
 
-        // Fix B: Label unnamed carousel buttons (aria-label)
-        var allButtons = root.querySelectorAll('button');
-        allButtons.forEach(function(btn) {
-          if (btn.getAttribute('aria-label')) return;
-          var text = btn.textContent.trim();
-          if (text) return;
-          var svg = btn.querySelector('svg');
-          if (svg) {
-            // Arrow buttons: check position relative to siblings
-            var parent = btn.parentElement;
-            var siblings = parent ? Array.from(parent.children) : [];
-            var idx = siblings.indexOf(btn);
-            btn.setAttribute('aria-label', idx === 0 ? 'Previous screenshot' : 'Next screenshot');
-          } else {
-            // Dot buttons: use index for label
-            var dotParent = btn.parentElement;
-            if (dotParent) {
-              var dots = Array.from(dotParent.children).filter(function(c) { return c.tagName === 'BUTTON'; });
-              var dotIdx = dots.indexOf(btn);
-              btn.setAttribute('aria-label', 'Go to screenshot ' + (dotIdx + 1));
-            }
-          }
-        });
+        <nav id="primary-nav" class="nav-links" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#screenshots">App</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#about">Story</a>
+        </nav>
 
-        // Fix 5: Footer headings — H4 → H3
-        var footerEl = root.querySelector('footer');
-        if (footerEl) {
-          footerEl.querySelectorAll('h4').forEach(function(h4) {
-            var h3 = document.createElement('h3');
-            h3.className = h4.className;
-            h3.innerHTML = h4.innerHTML;
-            h4.parentNode.replaceChild(h3, h4);
-          });
-        }
+        <a class="btn btn-primary btn-sm" href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=website&mt=8" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path fill="currentColor" d="M16.365 1.43c0 1.14-.466 2.234-1.225 3.043-.816.87-2.148 1.544-3.258 1.456-.137-1.11.41-2.274 1.177-3.055.85-.87 2.281-1.515 3.306-1.444zm3.56 17.56c-.652 1.434-.969 2.077-1.81 3.347-1.173 1.78-2.827 3.996-4.88 4.014-1.823.016-2.295-1.186-4.772-1.17-2.477.014-2.996 1.19-4.82 1.174-2.054-.018-3.62-2.015-4.793-3.794-3.282-5.01-3.627-10.89-1.602-14.024 1.438-2.23 3.71-3.536 5.845-3.536 2.173 0 3.542 1.191 5.339 1.191 1.743 0 2.805-1.194 5.318-1.194 1.902 0 3.917 1.035 5.353 2.822-4.704 2.578-3.939 9.297-.178 11.17z"/></svg>
+          Download
+        </a>
+      </div>
+    </header>
 
-        // Fix 6: Swap PNG images to WebP with <picture> elements
-        var supportsWebP = document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0;
-        root.querySelectorAll('img').forEach(function(img, i) {
-          // Add lazy loading to below-fold images
-          if (i > 0) img.setAttribute('loading', 'lazy');
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
 
-          // Wrap in <picture> with WebP source
-          if (supportsWebP && img.src.includes('IMG_') && img.src.endsWith('.png')) {
-            var picture = document.createElement('picture');
-            var source = document.createElement('source');
-            source.srcset = img.src.replace('.png', '.webp');
-            source.type = 'image/webp';
-            picture.appendChild(source);
-            img.parentNode.insertBefore(picture, img);
-            picture.appendChild(img);
-          }
-        });
+        <div class="container hero-grid">
+          <div class="hero-copy" data-reveal>
+            <h1 class="hero-title">Never miss<br>your route</h1>
+            <p class="lede">
+              Real-time transit tracking on your wrist and in your pocket. Travel Times keeps you informed with up-to-the-minute route updates and delay notifications.
+            </p>
+            <div class="hero-ctas">
+              <a class="btn btn-inverse btn-lg" href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=website&mt=8" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M16.365 1.43c0 1.14-.466 2.234-1.225 3.043-.816.87-2.148 1.544-3.258 1.456-.137-1.11.41-2.274 1.177-3.055.85-.87 2.281-1.515 3.306-1.444zm3.56 17.56c-.652 1.434-.969 2.077-1.81 3.347-1.173 1.78-2.827 3.996-4.88 4.014-1.823.016-2.295-1.186-4.772-1.17-2.477.014-2.996 1.19-4.82 1.174-2.054-.018-3.62-2.015-4.793-3.794-3.282-5.01-3.627-10.89-1.602-14.024 1.438-2.23 3.71-3.536 5.845-3.536 2.173 0 3.542 1.191 5.339 1.191 1.743 0 2.805-1.194 5.318-1.194 1.902 0 3.917 1.035 5.353 2.822-4.704 2.578-3.939 9.297-.178 11.17z"/></svg>
+                <span>Download for iOS</span>
+              </a>
+              <a class="btn btn-ghost-dark btn-lg" href="#features">Learn more</a>
+            </div>
+          </div>
 
-        // Fix 7: Convert Download buttons to <a> links
-        root.querySelectorAll('button').forEach(function(btn) {
-          if (btn.textContent.includes('Download on App Store')) {
-            var link = document.createElement('a');
-            link.href = APP_STORE_URL;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.className = btn.className;
-            link.innerHTML = btn.innerHTML;
-            link.setAttribute('role', 'button');
-            btn.parentNode.replaceChild(link, btn);
-          }
-        });
+          <div class="hero-devices" data-reveal>
+            <div class="watch-mockup watch-hero-left" aria-hidden="true">
+              <span class="watch-strap watch-strap-top"></span>
+              <span class="watch-strap watch-strap-bottom"></span>
+              <div class="watch-body">
+                <span class="watch-crown"></span>
+                <span class="watch-mic"></span>
+                <div class="watch-screen watch-screen-image">
+                  <picture>
+                    <source srcset="/assets/watch-scrolled.webp" type="image/webp">
+                    <img src="/assets/watch-scrolled.png" alt="" width="170" height="207" loading="eager">
+                  </picture>
+                </div>
+              </div>
+            </div>
 
-        // Fix C: Update copyright year
-        if (footerEl) {
-          var walker = document.createTreeWalker(footerEl, NodeFilter.SHOW_TEXT);
-          while (walker.nextNode()) {
-            if (walker.currentNode.textContent.includes('© 2025')) {
-              walker.currentNode.textContent = walker.currentNode.textContent.replace('© 2025', '© 2026');
-            }
-          }
-        }
+            <div class="phone phone-hero" role="img" aria-label="Travel Times app on iPhone showing a live list of Milwaukee freeway travel times">
+              <div class="phone-notch" aria-hidden="true"></div>
+              <picture>
+                <source srcset="/assets/IMG_4571.webp" type="image/webp">
+                <img src="/assets/IMG_4571.png" alt="" width="300" height="652" fetchpriority="high">
+              </picture>
+            </div>
 
-        observer.disconnect();
-      });
-      observer.observe(document.getElementById('root'), { childList: true, subtree: true });
-    </script>
+            <div class="watch-mockup watch-hero-right" aria-hidden="true">
+              <span class="watch-strap watch-strap-top"></span>
+              <span class="watch-strap watch-strap-bottom"></span>
+              <div class="watch-body">
+                <span class="watch-crown"></span>
+                <span class="watch-mic"></span>
+                <div class="watch-screen watch-screen-image">
+                  <picture>
+                    <source srcset="/assets/watch-main.webp" type="image/webp">
+                    <img src="/assets/watch-main.png" alt="" width="170" height="207" loading="eager">
+                  </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FREEWAY STRIP -->
+      <section class="freeway-strip" aria-label="Tracked Milwaukee freeways">
+        <div class="container">
+          <span class="strip-label">Tracked freeways</span>
+          <ul class="strip-list">
+            <li>I-94</li><li>I-43</li><li>I-894</li><li>US-45</li><li>I-41</li><li>I-794</li><li>I-39/90</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section class="why">
+        <div class="container">
+          <p class="eyebrow">Why Travel Times</p>
+          <h2 class="display">No clutter. No distractions. Just the information you need to <span class="accent">make the right route choice.</span></h2>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features" class="features">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">Built for commuters</p>
+            <h2 class="display">Everything you need. Nothing you don't.</h2>
+            <p class="section-lede">Hyperlocal traffic intelligence, stripped down to the signal.</p>
+          </header>
+
+          <ul class="feature-grid">
+            <li class="feature-card" data-reveal>
+              <span class="feature-icon" style="--tint:#4f46e5">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+              </span>
+              <h3>Real-time travel times</h3>
+              <p>Live updates for every major freeway — so you can make the smart call before you even start the car.</p>
+            </li>
+
+            <li class="feature-card" data-reveal>
+              <span class="feature-icon" style="--tint:#22c55e">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 6h7M3 12h12M3 18h9"/><circle cx="20" cy="6" r="2" fill="currentColor"/><circle cx="20" cy="12" r="2" fill="currentColor" opacity=".7"/><circle cx="20" cy="18" r="2" fill="currentColor" opacity=".4"/></svg>
+              </span>
+              <h3>Color-coded status</h3>
+              <p>Green, yellow, red. Pick the fastest route in seconds without parsing a single number.</p>
+            </li>
+
+            <li class="feature-card" data-reveal>
+              <span class="feature-icon" style="--tint:#f59e0b">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+              </span>
+              <h3>Smart &amp; scheduled alerts</h3>
+              <p>Delay alerts when traffic turns — plus scheduled notifications for the times that matter most. Built for daily commutes.</p>
+            </li>
+
+            <li class="feature-card" data-reveal>
+              <span class="feature-icon" style="--tint:#ef4444">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0ZM12 9v4M12 17h.01"/></svg>
+              </span>
+              <h3>Active incidents</h3>
+              <p>Road closures, roadwork, and crashes — grouped by severity, right inside route details. Know what&rsquo;s blocking you before you go.</p>
+            </li>
+
+            <li class="feature-card" data-reveal>
+              <span class="feature-icon" style="--tint:#a855f7">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m12 17-6.18 3.73 1.64-7.19L2 8.76l7.19-.61L12 1.5l2.81 6.65 7.19.61-5.46 4.78 1.64 7.19L12 17Z"/></svg>
+              </span>
+              <h3>Favorites, everywhere</h3>
+              <p>Pin your go-to routes for a personalized dashboard. iCloud syncs your picks across iPhone, iPad, and Apple Watch.</p>
+            </li>
+
+            <li class="feature-card" data-reveal>
+              <span class="feature-icon" style="--tint:#10b981">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7M16 6l-4-4-4 4M12 2v13"/></svg>
+              </span>
+              <h3>Share in one tap</h3>
+              <p>Send current travel times and delay info to anyone — iMessage, Mail, or any share destination. Perfect for running late.</p>
+            </li>
+
+            <li class="feature-card" data-reveal>
+              <span class="feature-icon" style="--tint:#6366f1">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="7" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="15" width="7" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              </span>
+              <h3>Redesigned route details</h3>
+              <p>Horizontal stat cards, estimated arrival, relative timestamps, and delay indicators tuned to severity — at a single glance.</p>
+            </li>
+
+            <li class="feature-card" data-reveal>
+              <span class="feature-icon" style="--tint:#0ea5e9">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.3-4.3M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
+              </span>
+              <h3>Sort &amp; search</h3>
+              <p>Find routes by name, direction, or destination. The whole freeway network in a single tap.</p>
+            </li>
+
+            <li class="feature-card" data-reveal>
+              <span class="feature-icon" style="--tint:#0891b2">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+              </span>
+              <h3>Official WisDOT data</h3>
+              <p>Every metric comes directly from Wisconsin DOT. No guesswork. No crowdsourcing. No nonsense.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- LIVE DEMO -->
+      <section class="live-demo">
+        <div class="container demo-grid">
+          <div class="demo-copy" data-reveal>
+            <p class="eyebrow">A peek at the live board</p>
+            <h2 class="display">Watch travel times <span class="accent">update in real time.</span></h2>
+            <p class="section-lede">Color-coded cards refresh every few minutes from WisDOT sensors so you always see what the road is doing right now — not what it was doing five minutes ago.</p>
+            <ul class="demo-legend">
+              <li><span class="dot dot-green"></span> Clear</li>
+              <li><span class="dot dot-yellow"></span> Slowing</li>
+              <li><span class="dot dot-red"></span> Congested</li>
+            </ul>
+          </div>
+
+          <div class="demo-board" data-reveal aria-label="Live route board demo">
+            <header class="demo-board-head">
+              <div>
+                <span class="pulse" aria-hidden="true"></span>
+                <strong>Live</strong>
+              </div>
+              <span class="mono" data-clock>—</span>
+            </header>
+            <ul class="demo-routes" data-routes>
+              <li data-baseline="10" data-status="green">
+                <span class="dot dot-green" aria-hidden="true"></span>
+                <div>
+                  <strong class="mono">I-94 EB</strong>
+                  <small>Downtown → Airport</small>
+                </div>
+                <span class="eta"><b data-eta>10</b> min</span>
+              </li>
+              <li data-baseline="14" data-status="green">
+                <span class="dot dot-green" aria-hidden="true"></span>
+                <div>
+                  <strong class="mono">I-894 NB</strong>
+                  <small>Greenfield → Zoo Int</small>
+                </div>
+                <span class="eta"><b data-eta>14</b> min</span>
+              </li>
+              <li data-baseline="22" data-status="yellow">
+                <span class="dot dot-yellow" aria-hidden="true"></span>
+                <div>
+                  <strong class="mono">I-43 SB</strong>
+                  <small>Glendale → Downtown</small>
+                </div>
+                <span class="eta"><b data-eta>22</b> min</span>
+              </li>
+              <li data-baseline="9" data-status="green">
+                <span class="dot dot-green" aria-hidden="true"></span>
+                <div>
+                  <strong class="mono">US-45 NB</strong>
+                  <small>Hale → Capitol</small>
+                </div>
+                <span class="eta"><b data-eta>9</b> min</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PLATFORM SPOTLIGHT — Live Activities -->
+      <section id="platform" class="spotlight">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">New this release</p>
+            <h2 class="display">Live Activities, <span class="accent">now in the Dynamic Island.</span></h2>
+            <p class="section-lede">Track your commute in real time from the Lock Screen and Dynamic Island &mdash; no app switching, no unlocking.</p>
+          </header>
+
+          <article class="spotlight-card spotlight-solo" data-reveal>
+            <div class="spotlight-visual live-visual">
+              <div class="live-phone">
+                <picture>
+                  <source srcset="/assets/IMG_4584.webp" type="image/webp">
+                  <img src="/assets/IMG_4584.png" alt="iPhone Lock Screen with Travel Times Live Activities for two I-94 routes and a Notification Center banner showing a Your Commute Update push with per-route delays." loading="lazy" width="230" height="500">
+                </picture>
+              </div>
+            </div>
+            <div class="spotlight-body">
+              <span class="spotlight-chip">
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="7" cy="12" r="1.5" fill="currentColor"/></svg>
+                Live Activities
+              </span>
+              <h3>Glance. Never unlock.</h3>
+              <p>Your current travel time, delays, and ETA render directly on the Lock Screen and Dynamic Island. Scheduled pushes keep you ahead of the commute, so you know when to leave without opening the app.</p>
+              <ul class="spotlight-bullets">
+                <li>
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L20 7"/></svg>
+                  Lock Screen Live Activities
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L20 7"/></svg>
+                  Dynamic Island support
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L20 7"/></svg>
+                  Scheduled push notifications
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SCREENSHOTS -->
+      <section id="screenshots" class="screenshots">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">Inside the app</p>
+            <h2 class="display">Designed for a single glance at the stoplight.</h2>
+          </header>
+        </div>
+
+        <div class="carousel" data-carousel>
+          <div class="carousel-track" data-track>
+            <figure class="shot">
+              <picture>
+                <source srcset="/assets/IMG_4571.webp" type="image/webp">
+                <img src="/assets/IMG_4571.png" alt="Main routes overview screen listing I-39/90 Milwaukee freeway segments with travel times and a search field at the top." loading="lazy" width="300" height="652">
+              </picture>
+              <figcaption>
+                <strong>Main overview</strong>
+                <span>Every tracked route, one tap away.</span>
+              </figcaption>
+            </figure>
+
+            <figure class="shot">
+              <picture>
+                <source srcset="/assets/IMG_4572.webp" type="image/webp">
+                <img src="/assets/IMG_4572.png" alt="Routes list showing color-coded statuses — green, info, and warning — with minute-level delay badges beside each route." loading="lazy" width="300" height="652">
+              </picture>
+              <figcaption>
+                <strong>Color-coded status</strong>
+                <span>Green, yellow, red — pick the fastest route in a glance.</span>
+              </figcaption>
+            </figure>
+
+            <figure class="shot">
+              <picture>
+                <source srcset="/assets/IMG_4573.webp" type="image/webp">
+                <img src="/assets/IMG_4573.png" alt="Search view filtered to Airport routes showing a mix of clear, slowing, and congested routes with delay minutes." loading="lazy" width="300" height="652">
+              </picture>
+              <figcaption>
+                <strong>Sort &amp; search</strong>
+                <span>Filter by name, direction, or destination.</span>
+              </figcaption>
+            </figure>
+
+            <figure class="shot">
+              <picture>
+                <source srcset="/assets/IMG_4574.webp" type="image/webp">
+                <img src="/assets/IMG_4574.png" alt="Redesigned Route Details screen showing horizontal stat cards for Travel Time, Estimated Arrival, and Delay, with Add to Favorites and Start Live Activity buttons." loading="lazy" width="300" height="652">
+              </picture>
+              <figcaption>
+                <strong>Redesigned route details</strong>
+                <span>Travel time, arrival, and delay — up top, at a glance.</span>
+              </figcaption>
+            </figure>
+
+            <figure class="shot">
+              <picture>
+                <source srcset="/assets/IMG_4575.webp" type="image/webp">
+                <img src="/assets/IMG_4575.png" alt="Route Details screen with the Active Incidents section expanded, grouping an incident for a disabled vehicle and a roadwork entry." loading="lazy" width="300" height="652">
+              </picture>
+              <figcaption>
+                <strong>Active incidents</strong>
+                <span>Closures, roadwork, and crashes grouped by severity.</span>
+              </figcaption>
+            </figure>
+
+            <figure class="shot">
+              <picture>
+                <source srcset="/assets/IMG_4576.webp" type="image/webp">
+                <img src="/assets/IMG_4576.png" alt="Favorites screen with four starred Milwaukee routes and a notifications bell icon in the header." loading="lazy" width="300" height="652">
+              </picture>
+              <figcaption>
+                <strong>Pinned favorites</strong>
+                <span>Your go-to commute, always on top — synced via iCloud.</span>
+              </figcaption>
+            </figure>
+
+            <figure class="shot">
+              <picture>
+                <source srcset="/assets/IMG_4584.webp" type="image/webp">
+                <img src="/assets/IMG_4584.png" alt="Lock Screen showing Travel Times Live Activities for two I-94 routes and a Notification Center banner with a Your Commute Update push." loading="lazy" width="300" height="652">
+              </picture>
+              <figcaption>
+                <strong>Lock Screen Live Activities</strong>
+                <span>Real-time commute on the Lock Screen, plus scheduled pushes.</span>
+              </figcaption>
+            </figure>
+
+            <figure class="shot">
+              <picture>
+                <source srcset="/assets/IMG_4581.webp" type="image/webp">
+                <img src="/assets/IMG_4581.png" alt="Settings screen showing Notification Schedules with scheduled alerts at 8:00 AM and 4:45 PM on weekdays." loading="lazy" width="300" height="652">
+              </picture>
+              <figcaption>
+                <strong>Scheduled notifications</strong>
+                <span>Alerts at the times that matter most.</span>
+              </figcaption>
+            </figure>
+
+            <figure class="shot">
+              <picture>
+                <source srcset="/assets/IMG_4582.webp" type="image/webp">
+                <img src="/assets/IMG_4582.png" alt="New Schedule creator showing route checkboxes, day-of-week selector, and a time picker set to 8:00 AM." loading="lazy" width="300" height="652">
+              </picture>
+              <figcaption>
+                <strong>Build your schedule</strong>
+                <span>Pick routes, days, and times in seconds.</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="carousel-controls">
+            <button type="button" data-prev aria-label="Previous screenshot">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="carousel-dots" role="tablist" aria-label="Screenshot slides" data-dots></div>
+            <button type="button" data-next aria-label="Next screenshot">
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- REVIEWS -->
+      <section id="reviews" class="reviews">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">Milwaukee commuters love it</p>
+            <h2 class="display">4.8<span class="stars" aria-hidden="true">★★★★★</span></h2>
+            <p class="section-lede">Real reviews from people who use Travel Times every single day.</p>
+          </header>
+
+          <ul class="review-grid">
+            <li class="review-card" data-reveal>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>Great app! Good to know what traffic looks like so you can determine when to leave.</blockquote>
+              <figcaption><strong>App Store reviewer</strong><span>Verified download</span></figcaption>
+            </li>
+            <li class="review-card" data-reveal>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>This app makes it quick to check travel times on my favorite routes. Bug free!</blockquote>
+              <figcaption><strong>App Store reviewer</strong><span>Verified download</span></figcaption>
+            </li>
+            <li class="review-card featured" data-reveal>
+              <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+              <blockquote>Join thousands of daily commuters who rely on hyperlocal traffic intelligence for Milwaukee freeways.</blockquote>
+              <figcaption><strong>Daily commuters</strong><span>Across the greater MKE area</span></figcaption>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="about">
+        <div class="container about-grid">
+          <div class="about-copy" data-reveal>
+            <p class="eyebrow">The story</p>
+            <h2 class="display">Built by a local commuter who got tired of guessing.</h2>
+            <p>
+              Travel Times Milwaukee started as a personal project to make morning drives predictable. Today it delivers real-time insights to thousands of neighbors who depend on accurate routes to get to work, school, and home again.
+            </p>
+            <p class="about-meta">
+              Independent. Ad-free. No analytics. No third-party tracking. Just traffic.
+            </p>
+          </div>
+          <ul class="about-badges" data-reveal>
+            <li class="badge-featured">
+              <div class="badge-rating">
+                <strong>4.8</strong>
+                <span class="stars" aria-hidden="true">★★★★★</span>
+              </div>
+              <span>App Store rating &middot; loved by daily commuters</span>
+            </li>
+            <li>
+              <strong>WisDOT</strong>
+              <span>Official data source</span>
+            </li>
+            <li>
+              <strong>iOS 17.4+</strong>
+              <span>iPhone &middot; iPad &middot; Mac &middot; Vision &middot; Watch</span>
+            </li>
+            <li>
+              <strong>1.2 MB</strong>
+              <span>Lightweight &amp; fast</span>
+            </li>
+            <li>
+              <strong>$0</strong>
+              <span>Free forever</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- DOWNLOAD CTA -->
+      <section id="download" class="cta-band">
+        <div class="container cta-grid">
+          <div class="cta-copy" data-reveal>
+            <h2 class="display">Ready to beat traffic?</h2>
+            <p>Download Travel Times Milwaukee and arrive on time — every time.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-inverse btn-lg" href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=website&mt=8" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M16.365 1.43c0 1.14-.466 2.234-1.225 3.043-.816.87-2.148 1.544-3.258 1.456-.137-1.11.41-2.274 1.177-3.055.85-.87 2.281-1.515 3.306-1.444zm3.56 17.56c-.652 1.434-.969 2.077-1.81 3.347-1.173 1.78-2.827 3.996-4.88 4.014-1.823.016-2.295-1.186-4.772-1.17-2.477.014-2.996 1.19-4.82 1.174-2.054-.018-3.62-2.015-4.793-3.794-3.282-5.01-3.627-10.89-1.602-14.024 1.438-2.23 3.71-3.536 5.845-3.536 2.173 0 3.542 1.191 5.339 1.191 1.743 0 2.805-1.194 5.318-1.194 1.902 0 3.917 1.035 5.353 2.822-4.704 2.578-3.939 9.297-.178 11.17z"/></svg>
+                <span>Download on the App Store</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/">
+            <img src="/assets/tt-1024.png" alt="" width="32" height="32">
+            <span>Travel Times <em>MKE</em></span>
+          </a>
+          <p>Real-time traffic intelligence for Milwaukee commuters.</p>
+        </div>
+
+        <nav aria-label="Product">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#platform">What&rsquo;s new</a></li>
+            <li><a href="#screenshots">Screenshots</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=website&mt=8" target="_blank" rel="noopener noreferrer">App Store</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Legal">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Developer">
+          <h3>Built by</h3>
+          <ul>
+            <li><a href="https://vinny.dev" target="_blank" rel="noopener noreferrer">vinny.dev</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="container footer-base">
+        <p>&copy; <span data-year>2026</span> Vinny Carpenter. Milwaukee made.</p>
+        <p class="mono">Data · Wisconsin DOT</p>
+      </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
   </body>
 </html>
