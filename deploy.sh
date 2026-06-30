@@ -55,6 +55,10 @@ aws s3 sync . s3://$BUCKET_NAME \
     --exclude "CLAUDE.md" \
     --exclude "TravelTimes_PRD.html" \
     --exclude "current-site-*.png" \
+    --exclude ".playwright-mcp/*" \
+    --exclude "hero-*.png" \
+    --exclude "about.png" \
+    --exclude "spotlight.png" \
     --cache-control "max-age=31536000,public" \
     --delete
 
