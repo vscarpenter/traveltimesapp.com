@@ -912,6 +912,110 @@ h1, h2, h3 { color: var(--ink-dark); font-weight: 700; }
   color: var(--text-muted);
 }
 
+/* ---------- Legal pages (privacy.html, terms.html) ---------- */
+/* Appendix sheets: fig label + title head, then a spec-table-style document
+   panel whose rows are numbered clauses (A.1, A.2, ...). */
+.legal-head { padding: 56px 0 40px; }
+.legal-title {
+  margin-top: 16px;
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+.legal-lede {
+  margin-top: 14px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-body);
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+.legal-meta { margin-top: 14px; }
+
+.doc {
+  max-width: 880px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 72px;
+}
+.doc-head {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 10px 24px;
+  background: var(--ink-dark);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+.doc-head .rev { color: var(--ondark-muted); }
+.doc-section {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 20px;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.doc-idx {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--blue-accent);
+  padding-top: 5px;
+}
+.doc-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink-dark);
+}
+.doc-section p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-body);
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+.doc-section ul {
+  margin-top: 10px;
+  padding-left: 18px;
+  list-style: square;
+  max-width: 60ch;
+}
+.doc-section li {
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+.doc-section li::marker { color: var(--blue-accent); }
+.doc-section a {
+  color: var(--blue-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--dur-fast) var(--ease);
+}
+.doc-section a:hover { color: var(--blue-primary-hover); }
+.doc-foot { padding: 20px 24px; }
+
+.footer-base a { color: inherit; transition: color var(--dur-fast) var(--ease); }
+.footer-base a:hover { color: var(--blue-primary); }
+
+@media (max-width: 720px) {
+  .legal-title { font-size: 32px; }
+  .doc-section { grid-template-columns: 1fr; gap: 4px 0; }
+  /* Legal pages have no hamburger; when nav links hide, keep Download right-aligned */
+  .nav--legal .btn--nav { margin-left: auto; }
+}
+@media (pointer: coarse) {
+  .footer-base a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
 /* ---------- Scroll reveal ---------- */
 /* Guarded by html.js so content stays visible when JavaScript is unavailable. */
 html.js [data-reveal] {
