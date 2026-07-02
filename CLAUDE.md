@@ -14,57 +14,31 @@ Static website landing page for Travel Times Milwaukee iOS app, deployed to AWS 
 - **CloudFront Distribution**: `E29CIMMJ1ZCXON`
 - **Region**: `us-east-1`
 
+## Design System — "Blueprint"
+
+The site uses a civil-engineering / DOT drawing-set aesthetic: grid-paper background, ink-navy headings, blueprint-blue dashed callouts, monospace `FIG. 0N —` labels, ■ status squares, and a download CTA styled as a drawing title block. Type is IBM Plex Sans (prose) + IBM Plex Mono (labels/data).
+
+- **`DESIGN.md`** — the full design system: tokens, typography scale, motifs, component class map, motion, reuse rules. Read it before any visual work.
+- **`PRODUCT.md`** — register (brand), audience, personality, anti-references, design principles.
+- Tokens live in the `:root` block at the top of `styles.css` (single source of truth; DESIGN.md documents intent).
+- **Do not "fix" token values back to the design handoff**: `--text-muted`, `--status-green`, `--status-amber` were deliberately darkened from the handoff to meet WCAG AA at label sizes (drift table in DESIGN.md).
+- Original handoff reference: `design_handoff_blueprint_landing/` (prototype HTML + spec README).
+
 ## File Structure
-- `index.html` — Landing page (hero → freeway strip → why → features → live demo → **platform spotlight** → screenshots → reviews → about → CTA → footer)
-- `styles.css` — Design system + components
-- `script.js` — Vanilla JS: nav toggle, scroll reveals, carousel, live-demo ticker
+- `index.html` — Landing page. Section order (bands alternate paper/white, see DESIGN.md):
+  hero `#top` → freeway strip → why → features `#features` → live board `#live` → spotlight `#platform` → screenshots `#screenshots` → reviews `#reviews` → about `#about` → CTA title block `#download` → footer
+- `styles.css` — tokens → reset/base → blueprint motifs → components → responsive
+- `script.js` — Vanilla JS, progressive (page works without JS): footer year, mobile nav toggle, scroll reveal (`[data-reveal]` + IntersectionObserver), live-board ticker (`[data-clock]`/`[data-eta]`), external-link `rel` hardening
 - `privacy.html` — Privacy policy (self-contained, uses Tailwind CDN)
 - `terms.html` — Terms of use (self-contained, uses Tailwind CDN)
 - `assets/` — App screenshots (`IMG_*.png/.webp`, `watch-*.png/.webp`), icons (`tt-1024.png`), `og-image.png`
 - `deploy.sh` — AWS sync + CloudFront invalidation
 
-### Hero section
-Dark indigo hero (`linear-gradient(160deg, #15122e → #28204b)` + violet/indigo radial glows). Three-device composition:
-- Center: iPhone (`.phone-hero`) with `IMG_4571` screenshot, upright, z-index 2
-- Upper-left: tilted Apple Watch (`.watch-hero-left`, `watch-scrolled.png`) rotated `-14deg`, scaled `.62`
-- Lower-right: tilted Apple Watch (`.watch-hero-right`, `watch-main.png`) rotated `+9deg`, scaled `.62`
+### Live board (`#live`)
+Demo panel, not real data (footer strip says so). Clock ticks every 1s; each tick has ~22% chance to nudge one `[data-eta]` value ±1 min (floor 4). Entirely frozen under `prefers-reduced-motion`. Route rows are static HTML in `.board-row`s.
 
-Both watches use `filter: drop-shadow` for depth, `pointer-events: none`, and `aria-hidden="true"` — the centered iPhone carries the semantic labeling. The hero has a `::after` fade at the bottom that softens the transition into the light freeway strip.
-
-Buttons on dark bg: `.btn-inverse` (white) for primary, `.btn-ghost-dark` (transparent + white border) for secondary.
-
-### Platform Spotlight section (`#platform`)
-Single card (`.spotlight-solo`) focused on Live Activities only — the Apple Watch story is now told in the hero. Uses `IMG_4584.png` (real Lock Screen) inside `.live-phone` dark frame with `.spotlight-card` structure (visual left, body right). Rule of thumb: when real screenshots exist, prefer them over CSS-composed mockups.
-
-### About section
-`.about-badges` grid uses `.badge-featured` as a full-width gradient card at the top (grid-column: 1 / -1) showing the 4.8 rating with stars. The remaining four badges (WisDOT / iOS 17.4+ / 1.2 MB / $0) fill the 2×2 below. Hero stats moved here in the dark-hero redesign — don't put them back in the hero.
-
-## Design System
-
-"Indigo Transit" — matches the in-app lavender/purple theme with warm accents for CTAs.
-
-### Palette
-- **Primary (indigo-600)**: `#4f46e5` — headlines accent, nav active, primary buttons
-- **Primary dark (indigo-700)**: `#4338ca` — hover states, dark band
-- **Accent (violet-400)**: `#a78bfa` — hero gradient, featured cards
-- **CTA contrast (amber-500)**: `#f59e0b` — star ratings, delay alerts, inverse button hover
-- **Traffic semantics**: green `#22c55e`, yellow `#eab308`, red `#ef4444`
-- **Backgrounds**: cream `#fafaf7`, lavender-50 `#f5f3ff`, paper `#ffffff`
-- **Text**: slate-900 `#0f172a` (primary), slate-600 `#475569` (muted)
-
-All tokens defined as CSS custom properties at the top of `styles.css`.
-
-### Typography
-- **Hero headline (Playfair Display)**: the serif "Never miss your route" — editorial weight, 700/800 only
-- **Display (Outfit)**: h2/h3 elsewhere, buttons, stat figures — geometric, modern
-- **Body (Work Sans)**: paragraphs, UI text
-- **Mono (JetBrains Mono)**: route codes (I-94 EB), clock
-- Loaded from Google Fonts via `<link>` preconnect + single combined stylesheet URL
-
-### Motion
-- Easing: `cubic-bezier(.4, 0, .2, 1)` (base), `cubic-bezier(.2, .8, .2, 1)` (out)
-- Durations: 150ms (fast), 250ms (base), 400ms (slow)
-- All animation disabled under `prefers-reduced-motion: reduce`
+### Spotlight (`#platform`)
+Live Activities story: dashed callout framing `IMG_4584.png` (real Lock Screen) + checklist, with the Apple Watch card (`.watch-card`, `watch-main.png`) below. Rule of thumb: when real screenshots exist, prefer them over CSS-composed mockups.
 
 ## Security Implementation
 - Security headers set at CloudFront (CSP, X-Frame-Options, X-XSS-Protection)
@@ -75,15 +49,17 @@ All tokens defined as CSS custom properties at the top of `styles.css`.
 ## Content Updates
 
 When updating app information:
-- **App Store URL**: search for `itunes.apple.com` in `index.html` (appears in header CTA, hero CTA, final CTA, footer)
-- **Hero stats**: `.hero-stats` block in `index.html`
-- **Feature cards**: `.feature-grid` items in `index.html` (currently 9 cards, 3×3 desktop)
-- **Hero "New" callout**: `.hero-new` link in `index.html` — jumps to `#platform`
-- **Platform Spotlight cards**: `<article class="spotlight-card">` blocks inside `<section id="platform">` — replace image references to swap watch / Live Activity screenshots
-- **Screenshots**: replace files in `assets/` (`IMG_*.png` and generate matching `.webp`); update `<figure class="shot">` entries in the carousel
-- **Reviews**: `.review-grid` items in `index.html`
-- **Tracked freeways**: `.strip-list` in `index.html`
+- **App Store URL**: search for `itunes.apple.com` in `index.html` (header CTA, hero CTA, final CTA, footer)
+- **Hero trust row**: `.trust-row` in `index.html` (rating · free/no ads · no tracking)
+- **Feature cards**: `.feature-card` items in `.feature-grid` (currently 8 cards, 4×2 desktop, mono indices `3.1`–`3.8`)
+- **Live board routes**: `.board-row` entries — segment, span, ■ status, `[data-eta]` minutes
+- **Screenshots**: replace files in `assets/` (`IMG_*.png` + matching `.webp`); update `<figure class="shot">` entries in `.screens-grid` (5-up grid, indices `6.1`–`6.5`)
+- **Reviews**: `.review-card` items in `.review-grid` (third card uses `--dark` variant, indices `REPORT 7.n`)
+- **Tracked freeways**: `.chip` spans in `.strip`
+- **Spec table**: `.spec-row` label/value pairs in `#about`
+- **CTA title-block fields**: `.cta-fields` (PROJECT / PRICE / SIZE / DATA / REV — bump REV on meaningful releases)
 - **Structured data `featureList`**: JSON-LD block in `<head>` — keep in sync with actual feature grid
+- Numbered indices follow their section's FIG number — renumber if sections are added/reordered (see DESIGN.md motif 5)
 
 ### Image assets
 - Each screenshot needs a `.png` **and** `.webp` pair; the `<picture>` source handles negotiation.
@@ -92,13 +68,14 @@ When updating app information:
   `magick IMG_X.png -resize 50% -strip -colors 256 -dither FloydSteinberg PNG8:IMG_X.png`
   Yields ~200–300 KB. Modern browsers get the full-res WebP anyway; PNG is just the fallback.
 - iPhone Pro screenshot ratio: 1320×2868 → display as `width="300" height="652"`.
-- Apple Watch screenshot ratio: 422×514 → display as `width="170" height="207"` inside `.watch-body`.
+- Apple Watch screenshot ratio: 422×514 → display as `width="170" height="207"` inside `.watch-frame`.
 
 ## Conventions
 - Semantic HTML first (`<main>`, `<section>`, `<nav>`, `<figure>`)
-- SVG icons inline — no icon fonts, no emojis as icons
-- Minimum 44×44 touch targets on all interactive elements
-- Focus-visible outlines on all interactive elements
+- SVG icons inline, `stroke-width="2"`, `currentColor` (renders `--blue-accent` in icon tiles) — no icon fonts, no emojis as icons
+- Minimum 44×44 touch targets (enforced via `@media (pointer: coarse)`)
+- Focus-visible outlines on all interactive elements (2px `--blue-accent`)
 - Every image has `alt` text (empty `alt=""` only for purely decorative)
-- Responsive breakpoints: 560, 740, 960 (mobile-first) — 740 collapses spotlight-card to stacked, 960 collapses hero/demo/about grids
-- Anchors preserved: `#features`, `#platform`, `#screenshots`, `#reviews`, `#download`, `#about` (privacy.html and terms.html link back to these; hero + footer also link to `#platform`)
+- Responsive breakpoints (desktop-first): ≤1024 (story grids collapse, features 4→2, reviews 3→1, footer 4→2), ≤720 (hamburger nav, fluid headings, features→1, screenshots→scroll-snap row), ≤400 (callout labels drop)
+- All motion disabled/frozen under `prefers-reduced-motion: reduce`
+- Anchors preserved: `#features`, `#live`, `#platform`, `#screenshots`, `#reviews`, `#download`, `#about` (privacy.html and terms.html link back to these)
