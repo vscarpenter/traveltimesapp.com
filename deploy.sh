@@ -1,99 +1,44 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Travel Times Milwaukee — deploy to S3 + CloudFront.
+#
+# Allowlist model: only the files named below ever reach the public bucket.
+# A new file in the repo does NOT deploy until it is added to a list here.
 
-# Travel Times Milwaukee Landing Page Deployment Script
-# This script deploys the static website to existing AWS S3 bucket and CloudFront
+set -euo pipefail
+cd "$(dirname "$0")"
 
-set -e
+BUCKET="traveltimesapp.com"
+DISTRIBUTION_ID="E29CIMMJ1ZCXON"
 
-# Configuration
-BUCKET_NAME="traveltimesapp.com"
-REGION="us-east-1"
-CLOUDFRONT_DISTRIBUTION_ID="E29CIMMJ1ZCXON"
+# Pages must always revalidate; CSS/JS are not fingerprinted, so browsers get
+# a short cache while CloudFront keeps them until the deploy invalidation.
+PAGES=(index.html privacy.html terms.html robots.txt sitemap.xml llms.txt)
+CODE=(styles.css script.js)
 
-# Colors for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+command -v aws >/dev/null 2>&1 || { echo "error: aws CLI not installed" >&2; exit 1; }
+aws sts get-caller-identity >/dev/null 2>&1 || { echo "error: AWS credentials not configured (run 'aws configure')" >&2; exit 1; }
 
-echo -e "${GREEN}🚀 Starting deployment of Travel Times Milwaukee landing page...${NC}"
+echo "==> assets/ (images — 1-year cache)"
+aws s3 sync assets/ "s3://$BUCKET/assets/" \
+  --exclude ".DS_Store" \
+  --cache-control "public,max-age=31536000" \
+  --delete
 
-# Check if AWS CLI is installed
-if ! command -v aws &> /dev/null; then
-    echo -e "${RED}❌ AWS CLI is not installed. Please install it first.${NC}"
-    exit 1
-fi
+echo "==> CSS/JS (1-hour browser cache, long CDN cache)"
+for f in "${CODE[@]}"; do
+  aws s3 cp "$f" "s3://$BUCKET/$f" --cache-control "public,max-age=3600,s-maxage=31536000"
+done
 
-# Check if user is authenticated
-if ! aws sts get-caller-identity &> /dev/null; then
-    echo -e "${RED}❌ AWS credentials not configured. Please run 'aws configure' first.${NC}"
-    exit 1
-fi
+echo "==> Pages (no-cache)"
+for f in "${PAGES[@]}"; do
+  aws s3 cp "$f" "s3://$BUCKET/$f" --cache-control "no-cache"
+done
 
-# Check if bucket exists
-echo -e "${YELLOW}🔍 Checking if S3 bucket exists...${NC}"
-if ! aws s3api head-bucket --bucket $BUCKET_NAME 2>/dev/null; then
-    echo -e "${RED}❌ Bucket '$BUCKET_NAME' does not exist. Please create it first in the AWS console.${NC}"
-    exit 1
-fi
+echo "==> CloudFront invalidation"
+INVALIDATION_ID=$(aws cloudfront create-invalidation \
+  --distribution-id "$DISTRIBUTION_ID" \
+  --paths "/*" \
+  --query 'Invalidation.Id' \
+  --output text)
 
-echo -e "${GREEN}✅ Bucket '$BUCKET_NAME' found!${NC}"
-
-# Sync files to S3
-echo -e "${YELLOW}📤 Uploading files to S3...${NC}"
-aws s3 sync . s3://$BUCKET_NAME \
-    --exclude "*.sh" \
-    --exclude ".git/*" \
-    --exclude ".claude/*" \
-    --exclude ".vscode/*" \
-    --exclude ".DS_Store" \
-    --exclude ".gitignore" \
-    --exclude ".mcp.json" \
-    --exclude "README.md" \
-    --exclude "SECURITY.md" \
-    --exclude "CLAUDE.md" \
-    --exclude "TravelTimes_PRD.html" \
-    --exclude "current-site-*.png" \
-    --exclude ".playwright-mcp/*" \
-    --exclude "hero-*.png" \
-    --exclude "about.png" \
-    --exclude "spotlight.png" \
-    --cache-control "max-age=31536000,public" \
-    --delete
-
-# Set cache control for HTML files
-echo -e "${YELLOW}⚙️ Setting cache control for HTML files...${NC}"
-aws s3 cp s3://$BUCKET_NAME/index.html s3://$BUCKET_NAME/index.html \
-    --cache-control "no-cache,no-store,must-revalidate" \
-    --content-type "text/html"
-
-aws s3 cp s3://$BUCKET_NAME/privacy.html s3://$BUCKET_NAME/privacy.html \
-    --cache-control "no-cache,no-store,must-revalidate" \
-    --content-type "text/html"
-
-aws s3 cp s3://$BUCKET_NAME/terms.html s3://$BUCKET_NAME/terms.html \
-    --cache-control "no-cache,no-store,must-revalidate" \
-    --content-type "text/html"
-
-# Set cache control for robots.txt
-aws s3 cp s3://$BUCKET_NAME/robots.txt s3://$BUCKET_NAME/robots.txt \
-    --cache-control "no-cache,no-store,must-revalidate" \
-    --content-type "text/plain"
-
-echo -e "${GREEN}✅ Files uploaded successfully!${NC}"
-
-# CloudFront invalidation (if distribution ID is provided)
-if [ -n "$CLOUDFRONT_DISTRIBUTION_ID" ]; then
-    echo -e "${YELLOW}🔄 Invalidating CloudFront cache...${NC}"
-    aws cloudfront create-invalidation \
-        --distribution-id $CLOUDFRONT_DISTRIBUTION_ID \
-        --paths "/*"
-    echo -e "${GREEN}✅ CloudFront cache invalidation initiated!${NC}"
-else
-    echo -e "${BLUE}ℹ️  To invalidate CloudFront cache, set CLOUDFRONT_DISTRIBUTION_ID in the script${NC}"
-    echo -e "${BLUE}ℹ️  Or run manually: aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths '/*'${NC}"
-fi
-
-echo -e "${GREEN}🎉 Deployment completed!${NC}"
-echo -e "${YELLOW}Your website is now available at: https://$BUCKET_NAME${NC}"
+echo "Deployed. Invalidation $INVALIDATION_ID in progress — https://$BUCKET"
