@@ -1,0 +1,24 @@
+# Travel Times Milwaukee
+
+> Free, ad-free iOS app showing real-time travel times for Milwaukee-area freeways, powered by official Wisconsin DOT (WisDOT) sensor data. Runs on iPhone, iPad, Mac, Apple Vision, and Apple Watch, with Lock Screen Live Activities and Dynamic Island support.
+
+Key facts:
+
+- Price: $0 — free forever, no ads, no in-app purchases
+- Privacy: no analytics, no tracking, no accounts, no third-party services
+- Requirements: iOS 17.4 or later; app size about 1.2 MB
+- Coverage: I-94, I-43, I-894, US-45, I-41, I-794, and I-39/90 in the greater Milwaukee area
+- Features: color-coded route status (clear / slowing / congested), pinned favorites with iCloud sync, delay and scheduled alerts, active incident details, one-tap sharing, full Apple Watch app with complications
+- Data source: Wisconsin Department of Transportation real-time sensor feed (no crowdsourcing)
+- Developer: Vinny Carpenter (https://vinny.dev), independent, Milwaukee-based
+- App Store rating: 4.8 stars
+
+## Pages
+
+- [Home](https://traveltimesapp.com/): features, live board demo, screenshots, reviews, and download links
+- [Privacy policy](https://traveltimesapp.com/privacy.html)
+- [Terms of use](https://traveltimesapp.com/terms.html)
+
+## Download
+
+- [Travel Times Milwaukee on the App Store](https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&ct=website&mt=8)
