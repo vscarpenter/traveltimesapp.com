@@ -12,7 +12,7 @@ DISTRIBUTION_ID="E29CIMMJ1ZCXON"
 
 # Pages must always revalidate; CSS/JS are not fingerprinted, so browsers get
 # a short cache while CloudFront keeps them until the deploy invalidation.
-PAGES=(index.html privacy.html terms.html robots.txt sitemap.xml llms.txt)
+PAGES=(index.html privacy.html terms.html 404.html robots.txt sitemap.xml llms.txt)
 CODE=(styles.css script.js)
 
 command -v aws >/dev/null 2>&1 || { echo "error: aws CLI not installed" >&2; exit 1; }

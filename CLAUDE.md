@@ -31,6 +31,7 @@ The site uses a civil-engineering / DOT drawing-set aesthetic: grid-paper backgr
 - `script.js` — Vanilla JS, progressive (page works without JS): footer year, mobile nav toggle, scroll reveal (`[data-reveal]` + IntersectionObserver), live-board ticker (`[data-clock]`/`[data-eta]`), external-link `rel` hardening
 - `privacy.html` — Privacy policy (self-contained, uses Tailwind CDN)
 - `terms.html` — Terms of use (self-contained, uses Tailwind CDN)
+- `404.html` — Not-found page (Blueprint-styled, uses styles.css; served with a real 404 via CloudFront custom error response)
 - `assets/` — App screenshots (`IMG_*.png/.webp`, `watch-*.png/.webp`), icons (`tt-1024.png`), `og-image.png`
 - `deploy.sh` — AWS sync + CloudFront invalidation
 
