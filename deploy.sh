@@ -12,8 +12,8 @@ DISTRIBUTION_ID="E29CIMMJ1ZCXON"
 
 # Pages must always revalidate; CSS/JS are not fingerprinted, so browsers get
 # a short cache while CloudFront keeps them until the deploy invalidation.
-PAGES=(index.html privacy.html terms.html 404.html robots.txt sitemap.xml llms.txt)
-CODE=(styles.css script.js)
+PAGES=(index.html guide.html privacy.html terms.html 404.html robots.txt sitemap.xml llms.txt)
+CODE=(styles.css guide.css script.js guide.js)
 
 command -v aws >/dev/null 2>&1 || { echo "error: aws CLI not installed" >&2; exit 1; }
 aws sts get-caller-identity >/dev/null 2>&1 || { echo "error: AWS credentials not configured (run 'aws configure')" >&2; exit 1; }

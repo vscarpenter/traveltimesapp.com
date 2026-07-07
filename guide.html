@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Times User Guide — how to use the app on iPhone, iPad &amp; Watch</title>
+    <meta name="description" content="Learn how to use Travel Times for iPhone, iPad, Apple Watch, Siri, Shortcuts, notifications, Live Activities, route groups, and real-time commute alerts.">
+    <meta name="theme-color" content="#16337F">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="color-scheme" content="light">
+
+    <link rel="canonical" href="https://traveltimesapp.com/guide.html">
+    <link rel="icon" type="image/png" href="/assets/tt-1024.png">
+    <link rel="apple-touch-icon" href="/assets/tt-1024.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Travel Times User Guide">
+    <meta property="og:description" content="How to use Travel Times on iPhone, iPad, and Apple Watch — favorites, notifications, Live Activities, route groups, and Siri commute answers.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://traveltimesapp.com/guide.html">
+    <meta property="og:image" content="https://traveltimesapp.com/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Travel Times Milwaukee">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Travel Times User Guide">
+    <meta name="twitter:description" content="How to use Travel Times on iPhone, iPad, and Apple Watch.">
+    <meta name="twitter:image" content="https://traveltimesapp.com/assets/og-image.png">
+
+    <!-- FAQ structured data (mirrors the Troubleshooting sheet) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "I do not see any routes.", "acceptedAnswer": { "@type": "Answer", "text": "Check your network connection and pull to refresh. If the app has saved data, it shows cached routes. If no saved data exists, use the retry action." } },
+        { "@type": "Question", "name": "The route data looks old.", "acceptedAnswer": { "@type": "Answer", "text": "Check the timestamp above the route list. Pull down on the Routes tab to force a refresh." } },
+        { "@type": "Question", "name": "I cannot create a notification schedule.", "acceptedAnswer": { "@type": "Answer", "text": "Notification schedules require favorite routes. Add at least one favorite first." } },
+        { "@type": "Question", "name": "Notifications are not arriving.", "acceptedAnswer": { "@type": "Answer", "text": "Open Settings > Commute > Notification Schedules and confirm the schedule is enabled. Then check iOS Settings to make sure notifications are allowed for Travel Times. If Only notify when delayed is on, the alert may be skipped when no route meets the threshold." } },
+        { "@type": "Question", "name": "Live Activities do not appear.", "acceptedAnswer": { "@type": "Answer", "text": "Make sure Live Activities are enabled for Travel Times in iOS Settings. Then open a route and use Start Live Activity, or choose a route in Settings > Commute > Auto Live Activity." } },
+        { "@type": "Question", "name": "Siri says no commute routes are set up.", "acceptedAnswer": { "@type": "Answer", "text": "Add favorites first. For a more focused answer, create a route group in Settings > Commute > Route Groups." } },
+        { "@type": "Question", "name": "My Watch does not show routes.", "acceptedAnswer": { "@type": "Answer", "text": "Add favorites on iPhone and open Travel Times on Apple Watch. If the data is stale, tap the refresh footer on the Watch app." } },
+        { "@type": "Question", "name": "My favorites are not syncing.", "acceptedAnswer": { "@type": "Answer", "text": "Make sure you are signed in to iCloud. Favorites still work locally if iCloud is unavailable." } }
+      ]
+    }
+    </script>
+
+    <script>document.documentElement.classList.add("js");</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/guide.css">
+  </head>
+  <body class="guide">
+    <a class="skip-link" href="#main">Skip to guide</a>
+
+    <header class="site-header" data-nav>
+      <div class="container nav">
+        <a class="brand" href="/">
+          <span class="brand-tile" aria-hidden="true">TT</span>
+          <span class="brand-word">TRAVEL_TIMES<span class="mke">/MKE</span></span>
+        </a>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu" data-nav-toggle>
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav id="primary-nav" class="nav-links" aria-label="Primary">
+          <a href="/#features">Features</a>
+          <a href="/#live">Live board</a>
+          <a href="/#screenshots">App</a>
+          <a href="/#reviews">Reviews</a>
+          <a href="/guide.html" aria-current="page">Guide</a>
+        </nav>
+
+        <a class="btn btn-primary btn--nav" href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&amp;ct=website&amp;mt=8" target="_blank" rel="noopener noreferrer">Download</a>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <div class="container guide-intro">
+        <p class="fig">DRAWING SET — TRAVEL TIMES USER GUIDE</p>
+        <h1 class="guide-h1">How to read every route.</h1>
+        <p class="guide-lede">Travel Times has one job: show how your regular drive looks right now. This guide walks the whole app — from your first favorite to Live Activities, Siri, and the Apple Watch — as a set of numbered sheets. Pick one from the index.</p>
+        <p class="note guide-meta">SHEETS 01–14 · REVIEWED 2026·07·07 · REQUIRES iOS 26</p>
+      </div>
+
+      <div class="container guide-shell">
+        <!-- ===================== SHEET INDEX ===================== -->
+        <nav class="sheet-index" aria-label="Guide sheets">
+          <p class="sheet-index-head note">SHEET INDEX</p>
+          <ol>
+            <li class="si-item"><a href="#overview" data-sheet-link><span class="si-num">01</span><span class="si-label">Overview</span></a></li>
+            <li class="si-item"><a href="#quick-start" data-sheet-link><span class="si-num">02</span><span class="si-label">Quick Start</span></a></li>
+            <li class="si-item"><a href="#routes" data-sheet-link><span class="si-num">03</span><span class="si-label">Reading Routes</span></a></li>
+            <li class="si-item"><a href="#favorites" data-sheet-link><span class="si-num">04</span><span class="si-label">Favorites</span></a></li>
+            <li class="si-item"><a href="#details" data-sheet-link><span class="si-num">05</span><span class="si-label">Route Details</span></a></li>
+            <li class="si-item"><a href="#groups" data-sheet-link><span class="si-num">06</span><span class="si-label">Commute &amp; Groups</span></a></li>
+            <li class="si-item"><a href="#notifications" data-sheet-link><span class="si-num">07</span><span class="si-label">Notifications</span></a></li>
+            <li class="si-item"><a href="#live-activities" data-sheet-link><span class="si-num">08</span><span class="si-label">Live Activities</span></a></li>
+            <li class="si-item"><a href="#siri" data-sheet-link><span class="si-num">09</span><span class="si-label">Siri &amp; Shortcuts</span></a></li>
+            <li class="si-item"><a href="#watch" data-sheet-link><span class="si-num">10</span><span class="si-label">Apple Watch</span></a></li>
+            <li class="si-item"><a href="#ipad" data-sheet-link><span class="si-num">11</span><span class="si-label">iPad</span></a></li>
+            <li class="si-item"><a href="#settings" data-sheet-link><span class="si-num">12</span><span class="si-label">Settings</span></a></li>
+            <li class="si-item"><a href="#privacy" data-sheet-link><span class="si-num">13</span><span class="si-label">Privacy &amp; Access.</span></a></li>
+            <li class="si-item"><a href="#faq" data-sheet-link><span class="si-num">14</span><span class="si-label">Troubleshooting</span></a></li>
+          </ol>
+          <p class="sheet-counter note" data-sheet-counter aria-hidden="true">SHEET 01 OF 14</p>
+        </nav>
+
+        <!-- ===================== VIEWPORT ===================== -->
+        <div class="sheet-viewport">
+          <div class="visually-hidden" aria-live="polite" data-sheet-status></div>
+
+          <!-- ---------- 01 OVERVIEW ---------- -->
+          <section class="guide-sheet is-active" id="overview" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 01 — OVERVIEW</p>
+              <span class="note sheet-tag">SHEET 01 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">What Travel Times does</h2>
+            <p class="guide-sheet-lede">It reports live travel times and delay status for supported highway routes, then keeps your most important routes one tap away — from the route list, Favorites, Siri, Shortcuts, notifications, Apple Watch, and Live Activities.</p>
+
+            <div class="g-tip">
+              <span class="g-tip-label">SCOPE</span>
+              <p><strong>Travel Times is not a turn-by-turn navigation app, and it does not need your location.</strong> It shows route status for known corridors so you can decide whether to leave now, wait, or take another familiar route.</p>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Requirements</h3>
+              <div class="spec-table">
+                <div class="spec-head">REQUIREMENTS</div>
+                <dl class="spec-list">
+                  <div class="spec-row"><dt>DEVICE</dt><dd>iPhone or iPad running iOS 26 or later</dd></div>
+                  <div class="spec-row"><dt>WATCH</dt><dd>Optional — paired Apple Watch on watchOS 10 or later</dd></div>
+                  <div class="spec-row"><dt>ALERTS</dt><dd>Notification permission for scheduled reminders</dd></div>
+                  <div class="spec-row"><dt>LIVE ACT.</dt><dd>Live Activities enabled for Travel Times in iOS Settings</dd></div>
+                  <div class="spec-row"><dt>SIRI</dt><dd>Siri &amp; Shortcuts available on the device</dd></div>
+                  <div class="spec-row"><dt>SYNC</dt><dd>iCloud key-value storage when available, local storage as fallback</dd></div>
+                </dl>
+              </div>
+            </div>
+          </section>
+
+          <!-- ---------- 02 QUICK START ---------- -->
+          <section class="guide-sheet" id="quick-start" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 02 — QUICK START</p>
+              <span class="note sheet-tag">SHEET 02 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Set up in a minute</h2>
+            <p class="guide-sheet-lede">The whole app hangs off one thing: your favorite routes. Add the drives you make most, and Watch, notifications, Live Activities, groups, and Siri all light up.</p>
+
+            <ol class="g-steps g-block">
+              <li>Open Travel Times.</li>
+              <li>Review the <strong>Routes</strong> tab to see current travel times.</li>
+              <li>Pull down on the route list to refresh live data.</li>
+              <li>Tap a route to open its details.</li>
+              <li>Add your regular routes to <strong>Favorites</strong>.</li>
+              <li>Use <strong>Settings › Commute</strong> to set up route groups, notification schedules, and automatic Live Activities.</li>
+              <li>Add the Apple Watch complication or use Siri shortcuts once your favorites are set.</li>
+            </ol>
+
+            <div class="g-tip">
+              <span class="g-tip-label">START HERE</span>
+              <p>New to Travel Times? Start by adding the routes you drive most often. Favorites power the Watch app, notification schedules, Live Activities, route groups, and Siri commute answers — so the app can show the routes that matter before you leave.</p>
+            </div>
+          </section>
+
+          <!-- ---------- 03 READING ROUTES ---------- -->
+          <section class="guide-sheet" id="routes" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 03 — READING THE ROUTES TAB</p>
+              <span class="note sheet-tag">SHEET 03 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Know your commute at a glance</h2>
+            <p class="guide-sheet-lede">The Routes tab is the main screen. It lists every supported route with its current travel time, delay status, and last-updated time.</p>
+
+            <div class="g-split g-block">
+              <div class="g-split-body">
+                <h3 class="g-h3">Each route card shows</h3>
+                <ul class="checklist">
+                  <li><span class="check" aria-hidden="true">[✓]</span> Route name, e.g. <code>I-94 EB Zoo Interchange to Downtown</code></li>
+                  <li><span class="check" aria-hidden="true">[✓]</span> Current travel time, e.g. <code>14 min</code></li>
+                  <li><span class="check" aria-hidden="true">[✓]</span> Delay status — <code>On time</code>, <code>+4 min</code>, <code>+12 min</code></li>
+                  <li><span class="check" aria-hidden="true">[✓]</span> A colored status rule on the left edge</li>
+                  <li><span class="check" aria-hidden="true">[✓]</span> A chevron to open route details</li>
+                </ul>
+
+                <h3 class="g-h3" style="margin-top:22px">Status colors</h3>
+                <div class="legend g-legend">
+                  <span class="status status--green">■ CLEAR — on time</span>
+                  <span class="status status--amber">■ SLOWING — +1 to 5 min</span>
+                  <span class="status status--red">■ CONGESTED — +6 min or more</span>
+                </div>
+                <p class="g-p">Status is always shown with text, never color alone.</p>
+              </div>
+
+              <figure class="g-figure">
+                <div class="callout">
+                  <span class="callout-label callout-label--tl">DETAIL A — ROUTES TAB</span>
+                  <span class="callout-label callout-label--br">SRC: iOS 26</span>
+                  <div class="g-shot">
+                    <div class="device-screen">
+                      <picture>
+                        <source srcset="/assets/guide/iphone-routes.webp" type="image/webp">
+                        <img src="/assets/guide/iphone-routes.png" width="280" height="606" loading="lazy" decoding="async" alt="iPhone Routes tab: a search field above route cards, each showing travel time, a text status, and a colored status rule.">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <figcaption class="g-figcap">Search sits above scannable route cards with time, text status, and a colored rule.</figcaption>
+              </figure>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Last updated</h3>
+              <p class="g-p">The timestamp above the list shows when the displayed data was last refreshed. Same-day data reads <code>Updated at 7:13 AM</code>; older saved data includes the day.</p>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Refreshing</h3>
+              <ol class="g-steps">
+                <li>Open the Routes tab.</li>
+                <li>Pull down on the list.</li>
+                <li>Release when the refresh control appears.</li>
+              </ol>
+              <p class="g-p">Travel Times also refreshes when you return to the app if the saved route data is stale.</p>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Offline &amp; cached data</h3>
+              <p class="g-p">If the network is unavailable, Travel Times uses the most recent saved data when possible, shows an offline banner, and keeps the timestamp visible so you can tell how old it is. If no saved data exists, it shows a retry action.</p>
+            </div>
+
+            <div class="g-block">
+              <div class="g-split">
+                <div class="g-split-body">
+                  <h3 class="g-h3">Searching routes</h3>
+                  <ul class="g-list">
+                    <li>Search matches route names.</li>
+                    <li>Results update as you type.</li>
+                    <li>Matching text is highlighted.</li>
+                    <li>No matches shows a clear empty state and a <code>Clear Search</code> action.</li>
+                  </ul>
+                </div>
+                <figure class="g-figure">
+                  <div class="callout">
+                    <span class="callout-label callout-label--tl">DETAIL B — SEARCH</span>
+                    <span class="callout-label callout-label--br">SRC: iOS 26</span>
+                    <div class="g-shot">
+                      <div class="device-screen">
+                        <picture>
+                          <source srcset="/assets/guide/iphone-search-airport.webp" type="image/webp">
+                          <img src="/assets/guide/iphone-search-airport.png" width="280" height="606" loading="lazy" decoding="async" alt="Routes search filtered to airport routes, showing a single minor-delay result.">
+                        </picture>
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption class="g-figcap">Search narrows the list immediately — handy when a corridor has several similar names.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <!-- ---------- 04 FAVORITES ---------- -->
+          <section class="guide-sheet" id="favorites" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 04 — FAVORITES</p>
+              <span class="note sheet-tag">SHEET 04 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Keep your drives one tap away</h2>
+            <p class="guide-sheet-lede">Favorites keep your regular drives at the top of the experience. They also power Apple Watch, notification scheduling, route groups, commute briefs, and Siri commute answers.</p>
+
+            <div class="g-split g-block">
+              <div class="g-split-body">
+                <h3 class="g-h3">Add from the Routes tab</h3>
+                <ol class="g-steps">
+                  <li>Open the Routes tab.</li>
+                  <li>Swipe left on a route card.</li>
+                  <li>Tap <code>Favorite</code>. If it is already a favorite, the action becomes <code>Unfavorite</code>.</li>
+                </ol>
+
+                <h3 class="g-h3" style="margin-top:22px">Add or remove from Route Details</h3>
+                <ol class="g-steps">
+                  <li>Tap a route to open Route Details.</li>
+                  <li>Tap <code>Add to Favorites</code>.</li>
+                  <li>If it is already saved, tap <code>Remove from Favorites</code>.</li>
+                </ol>
+                <p class="g-p">Travel Times confirms the change with haptic feedback and an accessibility announcement.</p>
+              </div>
+
+              <figure class="g-figure">
+                <div class="callout">
+                  <span class="callout-label callout-label--tl">DETAIL C — FAVORITES</span>
+                  <span class="callout-label callout-label--br">SRC: iOS 26</span>
+                  <div class="g-shot">
+                    <div class="device-screen">
+                      <picture>
+                        <source srcset="/assets/guide/iphone-favorites.webp" type="image/webp">
+                        <img src="/assets/guide/iphone-favorites.png" width="280" height="606" loading="lazy" decoding="async" alt="iPhone Favorites tab showing saved route cards and the notification bell button.">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <figcaption class="g-figcap">Saved routes stay one tap away; the bell opens notification setup.</figcaption>
+              </figure>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">In the Favorites tab you can</h3>
+              <ul class="g-list">
+                <li>Tap a favorite to open Route Details.</li>
+                <li>Pull to refresh.</li>
+                <li>Drag favorites to reorder them.</li>
+                <li>Swipe left to delete a favorite.</li>
+                <li>Tap the bell button to manage notification schedules.</li>
+              </ul>
+              <p class="g-p">With no favorites yet, the tab shows a <code>Browse Routes</code> action.</p>
+            </div>
+          </section>
+
+          <!-- ---------- 05 ROUTE DETAILS ---------- -->
+          <section class="guide-sheet" id="details" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 05 — ROUTE DETAILS</p>
+              <span class="note sheet-tag">SHEET 05 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Everything about one route</h2>
+            <p class="guide-sheet-lede">Tap any route to open Route Details, which gathers the current status, an arrival estimate, favorite state, a share action, and the Live Activity control in one place.</p>
+
+            <div class="g-split g-block">
+              <div class="g-split-body">
+                <h3 class="g-h3">The detail screen shows</h3>
+                <ul class="g-list">
+                  <li>Route name and highway shield, when a matching shield exists.</li>
+                  <li>Current travel time and estimated arrival time.</li>
+                  <li>Delay status and last-updated time.</li>
+                  <li>Matching traffic incidents, when available.</li>
+                  <li>Favorite, Share, and Live Activity buttons.</li>
+                </ul>
+              </div>
+              <figure class="g-figure">
+                <div class="callout">
+                  <span class="callout-label callout-label--tl">DETAIL D — ROUTE DETAILS</span>
+                  <span class="callout-label callout-label--br">SRC: iOS 26</span>
+                  <div class="g-shot">
+                    <div class="device-screen">
+                      <picture>
+                        <source srcset="/assets/guide/iphone-route-detail.webp" type="image/webp">
+                        <img src="/assets/guide/iphone-route-detail.png" width="280" height="606" loading="lazy" decoding="async" alt="iPhone Route Details showing travel time, estimated arrival, delay, favorite, share, and Live Activity controls.">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <figcaption class="g-figcap">Status, arrival estimate, favorite, share, and Live Activity — all in one place.</figcaption>
+              </figure>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Estimated arrival</h3>
+              <p class="g-p">Estimated arrival adds the current travel time to the current clock time. If it is 7:30 AM and the route is 16 minutes, arrival appears as <code>7:46 AM</code>.</p>
+            </div>
+
+            <div class="g-block">
+              <div class="g-split">
+                <div class="g-split-body">
+                  <h3 class="g-h3">Incidents</h3>
+                  <p class="g-p">When route-related incidents are available, Travel Times shows them below the main route card. If there are no matching incidents, that section stays hidden.</p>
+                </div>
+                <figure class="g-figure">
+                  <div class="callout">
+                    <span class="callout-label callout-label--tl">DETAIL E — INCIDENTS</span>
+                    <span class="callout-label callout-label--br">SRC: iOS 26</span>
+                    <div class="g-shot">
+                      <div class="device-screen">
+                        <picture>
+                          <source srcset="/assets/guide/iphone-route-incidents.webp" type="image/webp">
+                          <img src="/assets/guide/iphone-route-incidents.png" width="280" height="606" loading="lazy" decoding="async" alt="Route Details with active incident categories expanded below the route card.">
+                        </picture>
+                      </div>
+                    </div>
+                  </div>
+                  <figcaption class="g-figcap">Incident summaries appear only when matching data is available.</figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Sharing a route</h3>
+              <ol class="g-steps">
+                <li>Open Route Details.</li>
+                <li>Tap the share icon in the navigation bar.</li>
+                <li>Choose Messages, Mail, or another destination.</li>
+              </ol>
+              <p class="g-p">The shared text includes the route name, current travel time, delay, freshness timestamp, and <code>traveltimesapp.com</code>.</p>
+            </div>
+          </section>
+
+          <!-- ---------- 06 COMMUTE & GROUPS ---------- -->
+          <section class="guide-sheet" id="groups" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 06 — COMMUTE BRIEF &amp; ROUTE GROUPS</p>
+              <span class="note sheet-tag">SHEET 06 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Organize your commutes</h2>
+            <p class="guide-sheet-lede">The commute brief answers one question fast: which route is best, which is worst, and whether anything is delayed. It builds from your route groups when available, and falls back to Favorites.</p>
+
+            <p class="g-p g-block">The same brief powers the in-app commute summary and the Siri and Shortcuts <code>Check commute</code> answer. Route groups let you organize favorites into commute sets:</p>
+            <div class="g-chips">
+              <span class="chip">MORNING</span>
+              <span class="chip">EVENING</span>
+              <span class="chip">AIRPORT</span>
+              <span class="chip">WEEKEND</span>
+              <span class="chip">SCHOOL PICKUP</span>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Create a route group</h3>
+              <ol class="g-steps">
+                <li>Open <strong>Settings › Route Groups</strong>.</li>
+                <li>Tap the add button.</li>
+                <li>Enter a group name.</li>
+                <li>Select one or more favorite routes.</li>
+                <li>Tap Save.</li>
+              </ol>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Edit or delete</h3>
+              <ul class="g-list">
+                <li>Tap an existing group to rename it or change its routes, then Save.</li>
+                <li>Swipe left on a group and tap Delete to remove it.</li>
+              </ul>
+            </div>
+
+            <div class="g-tip">
+              <span class="g-tip-label">REQUIRES FAVORITES</span>
+              <p>Route groups need favorites. If you have none yet, add favorites from the Routes tab or Route Details first.</p>
+            </div>
+          </section>
+
+          <!-- ---------- 07 NOTIFICATIONS ---------- -->
+          <section class="guide-sheet" id="notifications" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 07 — NOTIFICATION SCHEDULES</p>
+              <span class="note sheet-tag">SHEET 07 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Alerts only when they matter</h2>
+            <p class="guide-sheet-lede">Notification schedules send route reminders on selected days and times — useful for regular departure windows like weekday mornings or evening commutes. Open them from the Favorites bell or <strong>Settings › Commute › Notification Schedules</strong>.</p>
+
+            <div class="g-split g-block">
+              <div class="g-split-body">
+                <h3 class="g-h3">Create a schedule</h3>
+                <ol class="g-steps">
+                  <li>Open Notification Schedules and tap the add button.</li>
+                  <li>Select one or more favorite routes.</li>
+                  <li>Select the days of the week.</li>
+                  <li>Choose a time.</li>
+                  <li>Optionally enable <code>Only notify when delayed</code>.</li>
+                  <li>If delay-only is on, set the delay threshold in minutes.</li>
+                  <li>Tap Save.</li>
+                </ol>
+              </div>
+              <figure class="g-figure">
+                <div class="callout">
+                  <span class="callout-label callout-label--tl">DETAIL F — SCHEDULE</span>
+                  <span class="callout-label callout-label--br">SRC: iOS 26</span>
+                  <div class="g-shot">
+                    <div class="device-screen">
+                      <picture>
+                        <source srcset="/assets/guide/iphone-notification-schedule.webp" type="image/webp">
+                        <img src="/assets/guide/iphone-notification-schedule.png" width="280" height="606" loading="lazy" decoding="async" alt="Notification schedule sheet with a 5:00 PM schedule and a sample commute notification banner.">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <figcaption class="g-figcap">Manage schedules from Favorites or Settings; a test alert confirms it works.</figcaption>
+              </figure>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Smart alerts</h3>
+              <p class="g-p"><code>Only notify when delayed</code> makes a schedule quieter: Travel Times schedules the alert only when at least one selected route is delayed by the threshold you choose.</p>
+              <div class="g-tip">
+                <span class="g-tip-label">EXAMPLE — SMART ALERTS</span>
+                <p><strong>Routes:</strong> I-94 EB and I-43 SB. <strong>Threshold:</strong> 10 minutes.</p>
+                <p>If both are under 10 minutes of delay, the schedule is skipped. If I-43 SB is delayed by 11 minutes, the notification fires and names that delayed route.</p>
+              </div>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Manage schedules</h3>
+              <ul class="g-list">
+                <li>Turn a schedule on or off with the switch.</li>
+                <li>Tap a schedule to edit it.</li>
+                <li>Swipe left to delete it.</li>
+                <li>Tap the test button to send a sample notification after 5 seconds.</li>
+              </ul>
+              <p class="g-p">If notifications are disabled, Travel Times shows an option to open iOS Settings.</p>
+            </div>
+          </section>
+
+          <!-- ---------- 08 LIVE ACTIVITIES ---------- -->
+          <section class="guide-sheet" id="live-activities" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 08 — LIVE ACTIVITIES</p>
+              <span class="note sheet-tag">SHEET 08 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Your route on the Lock Screen</h2>
+            <p class="guide-sheet-lede">Live Activities keep one route visible on the Lock Screen, Dynamic Island, and StandBy while you are actively tracking it.</p>
+
+            <div class="g-split g-block">
+              <div class="g-split-body">
+                <h3 class="g-h3">Start manually</h3>
+                <ol class="g-steps">
+                  <li>Open a route.</li>
+                  <li>Tap <code>Start Live Activity</code>.</li>
+                  <li>Lock your phone or view the Dynamic Island to see the route status.</li>
+                </ol>
+                <p class="g-p">To stop it, return to Route Details and tap <code>End Live Activity</code>.</p>
+
+                <h3 class="g-h3" style="margin-top:22px">Start automatically</h3>
+                <ol class="g-steps">
+                  <li>Open <strong>Settings › Auto Live Activity</strong>.</li>
+                  <li>Choose a favorite route — or choose <code>Off</code> to turn it off.</li>
+                </ol>
+                <p class="g-p">Auto Live Activity starts one favorite route when fresh data arrives while the app is active.</p>
+              </div>
+              <figure class="g-figure">
+                <div class="callout">
+                  <span class="callout-label callout-label--tl">DETAIL G — LOCK SCREEN</span>
+                  <span class="callout-label callout-label--br">SRC: iOS 26</span>
+                  <div class="g-shot">
+                    <div class="device-screen">
+                      <picture>
+                        <source srcset="/assets/IMG_4584.webp" type="image/webp">
+                        <img src="/assets/IMG_4584.png" width="280" height="608" loading="lazy" decoding="async" alt="iPhone Lock Screen showing a Travel Times Live Activity with the current route and travel time.">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <figcaption class="g-figcap">One route stays live on the Lock Screen while you track it.</figcaption>
+              </figure>
+            </div>
+
+            <div class="g-tip">
+              <span class="g-tip-label">FOREGROUND-ONLY</span>
+              <p>Automatic Live Activities are foreground-only. Travel Times never surprise-starts a new Lock Screen surface from the background. Tap a Live Activity to open Travel Times straight to that route.</p>
+            </div>
+          </section>
+
+          <!-- ---------- 09 SIRI & SHORTCUTS ---------- -->
+          <section class="guide-sheet" id="siri" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 09 — SIRI &amp; SHORTCUTS</p>
+              <span class="note sheet-tag">SHEET 09 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Ask before you leave</h2>
+            <p class="guide-sheet-lede">Travel Times exposes app shortcuts for common actions. Try phrases like these:</p>
+
+            <ul class="g-phrases g-block">
+              <li>Open Travel Times</li>
+              <li>Show my routes in Travel Times</li>
+              <li>Show my favorites in Travel Times</li>
+              <li>Refresh Travel Times</li>
+              <li>Check my commute in Travel Times</li>
+              <li>How is my commute in Travel Times</li>
+            </ul>
+
+            <div class="g-block">
+              <h3 class="g-h3">The inline commute answer</h3>
+              <p class="g-p"><code>Check my commute</code> returns an answer without opening the app. It summarizes your commute brief from route groups or favorites.</p>
+              <div class="g-tip">
+                <span class="g-tip-label">INLINE ANSWER — EXAMPLE</span>
+                <p>“Your morning commute looks mostly clear. I-94 EB is on time at 14 min, and I-43 SB is running +6 min.”</p>
+              </div>
+              <p class="g-p">You can also build personal automations in the Shortcuts app using the Travel Times actions.</p>
+            </div>
+          </section>
+
+          <!-- ---------- 10 APPLE WATCH ---------- -->
+          <section class="guide-sheet" id="watch" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 10 — APPLE WATCH</p>
+              <span class="note sheet-tag">SHEET 10 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">On your wrist</h2>
+            <p class="guide-sheet-lede">Travel Times includes an Apple Watch companion focused on favorites.</p>
+
+            <ol class="g-steps g-block">
+              <li>Add favorite routes on iPhone.</li>
+              <li>Open Travel Times on Apple Watch.</li>
+              <li>Review the favorite route cards.</li>
+              <li>Tap a route to open its detail view.</li>
+            </ol>
+
+            <div class="watch-card">
+              <div class="watch-frame">
+                <span class="crown" aria-hidden="true"></span>
+                <div class="device-screen">
+                  <picture>
+                    <source srcset="/assets/watch-main.webp" type="image/webp">
+                    <img src="/assets/watch-main.png" width="170" height="207" loading="lazy" decoding="async" alt="Apple Watch showing Travel Times favorite route cards with delay status.">
+                  </picture>
+                </div>
+              </div>
+              <div>
+                <h4>Favorites, sorted by delay</h4>
+                <p>Delayed routes rise to the top so the worst news is first.</p>
+              </div>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Watch behavior</h3>
+              <ul class="g-list">
+                <li>Favorite routes sync from the iPhone.</li>
+                <li>Delayed routes sort toward the top.</li>
+                <li>The header shows <code>ALL CLEAR</code> when no favorites are delayed.</li>
+                <li>When delays exist, the header shows the number of delayed favorites.</li>
+                <li>If the Watch data is stale, tap the refresh footer to ask the iPhone for fresh data.</li>
+              </ul>
+              <p class="g-p">With no favorites, the Watch app prompts you to add routes on iPhone.</p>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Watch complication</h3>
+              <p class="g-p">The complication shows your first favorite route and its current travel time.</p>
+              <ol class="g-steps">
+                <li>Open the Watch app on iPhone, or edit the watch face on Apple Watch.</li>
+                <li>Choose a face that supports rectangular complications.</li>
+                <li>Add the Travel Times complication.</li>
+              </ol>
+              <p class="g-p">It updates when the iPhone sends fresh favorite-route data to the Watch.</p>
+            </div>
+          </section>
+
+          <!-- ---------- 11 IPAD ---------- -->
+          <section class="guide-sheet" id="ipad" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 11 — IPAD</p>
+              <span class="note sheet-tag">SHEET 11 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Split-view on iPad</h2>
+            <p class="guide-sheet-lede">On iPad, Travel Times uses a split-view layout: a sidebar (Routes, Favorites, Settings), the route list beside it, and Route Details in a detail column — so you can scan routes and keep a selected route visible.</p>
+
+            <div class="g-ipad-grid g-block">
+              <figure class="g-figure">
+                <div class="callout">
+                  <span class="callout-label callout-label--tl">DETAIL H — SPLIT VIEW</span>
+                  <span class="callout-label callout-label--br">SRC: iPadOS 26</span>
+                  <div class="g-shot g-shot--wide">
+                    <div class="device-screen">
+                      <picture>
+                        <source srcset="/assets/guide/ipad-favorites-split-view.webp" type="image/webp">
+                        <img src="/assets/guide/ipad-favorites-split-view.png" width="520" height="694" loading="lazy" decoding="async" alt="iPad Favorites split view: sidebar navigation, saved route list, and an empty detail pane.">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <figcaption class="g-figcap">Sidebar and route list stay visible while the detail pane waits for a selection.</figcaption>
+              </figure>
+              <figure class="g-figure">
+                <div class="callout">
+                  <span class="callout-label callout-label--tl">DETAIL I — DETAIL PANE</span>
+                  <span class="callout-label callout-label--br">SRC: iPadOS 26</span>
+                  <div class="g-shot g-shot--wide">
+                    <div class="device-screen">
+                      <picture>
+                        <source srcset="/assets/guide/ipad-route-detail.webp" type="image/webp">
+                        <img src="/assets/guide/ipad-route-detail.png" width="640" height="480" loading="lazy" decoding="async" alt="iPad Route Details split view showing a selected delayed route in the detail column.">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <figcaption class="g-figcap">Selecting a route keeps the list and the full detail view side by side.</figcaption>
+              </figure>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Context menus</h3>
+              <p class="g-p">On iPad and pointer devices, long-press or right-click a route row to:</p>
+              <ul class="g-list">
+                <li>View details.</li>
+                <li>Add or remove the route from Favorites.</li>
+                <li>Copy the route name.</li>
+                <li>Share a short route status.</li>
+              </ul>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Keyboard shortcuts</h3>
+              <div class="spec-table">
+                <div class="spec-head">IPAD KEYBOARD — HARDWARE</div>
+                <dl class="spec-list">
+                  <div class="spec-row"><dt>⌘R</dt><dd>Refresh routes</dd></div>
+                  <div class="spec-row"><dt>⌘F</dt><dd>Focus search</dd></div>
+                  <div class="spec-row"><dt>Esc</dt><dd>Clear search or dismiss the keyboard</dd></div>
+                  <div class="spec-row"><dt>⌘1</dt><dd>Open Routes</dd></div>
+                  <div class="spec-row"><dt>⌘2</dt><dd>Open Favorites</dd></div>
+                  <div class="spec-row"><dt>⌘3</dt><dd>Open Settings</dd></div>
+                </dl>
+              </div>
+            </div>
+          </section>
+
+          <!-- ---------- 12 SETTINGS ---------- -->
+          <section class="guide-sheet" id="settings" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 12 — SETTINGS</p>
+              <span class="note sheet-tag">SHEET 12 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Where everything lives</h2>
+            <p class="guide-sheet-lede">Settings is organized around commute configuration, app information, and data behavior.</p>
+
+            <div class="g-split g-block">
+              <div class="g-split-body">
+                <h3 class="g-h3">Commute</h3>
+                <ul class="g-list">
+                  <li><strong>Notification Schedules</strong> — create, edit, test, enable, disable, and delete route alerts.</li>
+                  <li><strong>Route Groups</strong> — group favorite routes for commute briefs.</li>
+                  <li><strong>Auto Live Activity</strong> — choose one favorite route to start automatically.</li>
+                </ul>
+
+                <h3 class="g-h3" style="margin-top:22px">App &amp; data</h3>
+                <ul class="g-list">
+                  <li>About Travel Times, and Rate the app.</li>
+                  <li>Refresh interval — routes refresh automatically when stale, and can be refreshed manually.</li>
+                </ul>
+              </div>
+              <figure class="g-figure">
+                <div class="callout">
+                  <span class="callout-label callout-label--tl">DETAIL J — SETTINGS</span>
+                  <span class="callout-label callout-label--br">SRC: iOS 26</span>
+                  <div class="g-shot">
+                    <div class="device-screen">
+                      <picture>
+                        <source srcset="/assets/guide/iphone-settings.webp" type="image/webp">
+                        <img src="/assets/guide/iphone-settings.png" width="280" height="606" loading="lazy" decoding="async" alt="iPhone Settings screen showing notification schedules, app links, and refresh interval.">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <figcaption class="g-figcap">Commute controls, app information, and data refresh behavior, grouped.</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <!-- ---------- 13 PRIVACY & ACCESSIBILITY ---------- -->
+          <section class="guide-sheet" id="privacy" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 13 — PRIVACY &amp; ACCESSIBILITY</p>
+              <span class="note sheet-tag">SHEET 13 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">No location. Built for everyone.</h2>
+            <p class="guide-sheet-lede">Travel Times does not require location permission because it does not track where you are. It reports live route status for predefined corridors.</p>
+
+            <div class="g-block">
+              <h3 class="g-h3">Data the app uses</h3>
+              <ul class="g-list">
+                <li>Live route data from the Travel Times route API.</li>
+                <li>Traffic incident data, when available.</li>
+                <li>Favorite routes, stored locally and synced through iCloud when available.</li>
+                <li>Notification schedules, stored on device.</li>
+                <li>Route groups and the Auto Live Activity preference, stored on device.</li>
+              </ul>
+              <p class="g-p">If iCloud is unavailable, favorites continue to work locally. For the full policy, read the <a href="/privacy.html">Privacy Policy</a>.</p>
+            </div>
+
+            <div class="g-block">
+              <h3 class="g-h3">Accessibility</h3>
+              <p class="g-p">Travel Times is designed for a five-second glance, and supports the features people rely on:</p>
+              <ul class="checklist">
+                <li><span class="check" aria-hidden="true">[✓]</span> VoiceOver labels and hints, with spoken route status including delay text</li>
+                <li><span class="check" aria-hidden="true">[✓]</span> Dynamic Type, including accessibility text sizes</li>
+                <li><span class="check" aria-hidden="true">[✓]</span> Reduced Motion for discoverability animations</li>
+                <li><span class="check" aria-hidden="true">[✓]</span> Reduced Transparency fallbacks for glass effects</li>
+                <li><span class="check" aria-hidden="true">[✓]</span> High-contrast adaptive colors</li>
+                <li><span class="check" aria-hidden="true">[✓]</span> Haptic feedback for important actions</li>
+                <li><span class="check" aria-hidden="true">[✓]</span> 44-point minimum touch targets and iPad keyboard shortcuts</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- ---------- 14 TROUBLESHOOTING & FAQ ---------- -->
+          <section class="guide-sheet" id="faq" data-sheet>
+            <div class="sheet-head">
+              <p class="fig">FIG. 14 — TROUBLESHOOTING &amp; FAQ</p>
+              <span class="note sheet-tag">SHEET 14 OF 14</span>
+            </div>
+            <h2 class="guide-sheet-title" tabindex="-1">Fixes for common snags</h2>
+            <p class="guide-sheet-lede">Most issues trace back to network, permissions, or favorites. Tap a question to expand it.</p>
+
+            <div class="g-faq">
+              <details>
+                <summary>I don’t see any routes.</summary>
+                <div class="g-faq-body"><p>Check your network connection and pull to refresh. If the app has saved data, it shows cached routes. If no saved data exists, use the retry action.</p></div>
+              </details>
+              <details>
+                <summary>The route data looks old.</summary>
+                <div class="g-faq-body"><p>Check the timestamp above the route list. Pull down on the Routes tab to force a refresh.</p></div>
+              </details>
+              <details>
+                <summary>I can’t create a notification schedule.</summary>
+                <div class="g-faq-body"><p>Notification schedules require favorite routes. Add at least one favorite first.</p></div>
+              </details>
+              <details>
+                <summary>Notifications aren’t arriving.</summary>
+                <div class="g-faq-body"><p>Open <code>Settings › Commute › Notification Schedules</code> and confirm the schedule is enabled. Then check iOS Settings to make sure notifications are allowed for Travel Times.</p><p>If <code>Only notify when delayed</code> is on, the alert may be skipped when no selected route meets the delay threshold.</p></div>
+              </details>
+              <details>
+                <summary>Live Activities don’t appear.</summary>
+                <div class="g-faq-body"><p>Make sure Live Activities are enabled for Travel Times in iOS Settings. Then open a route and use <code>Start Live Activity</code>, or choose a route in <code>Settings › Commute › Auto Live Activity</code>.</p></div>
+              </details>
+              <details>
+                <summary>Siri says no commute routes are set up.</summary>
+                <div class="g-faq-body"><p>Add favorites first. For a more focused answer, create a route group in <code>Settings › Commute › Route Groups</code>.</p></div>
+              </details>
+              <details>
+                <summary>My Watch doesn’t show routes.</summary>
+                <div class="g-faq-body"><p>Add favorites on iPhone and open Travel Times on Apple Watch. If the data is stale, tap the refresh footer on the Watch app.</p></div>
+              </details>
+              <details>
+                <summary>My favorites aren’t syncing.</summary>
+                <div class="g-faq-body"><p>Make sure you are signed in to iCloud. Favorites still work locally if iCloud is unavailable.</p></div>
+              </details>
+            </div>
+
+            <div class="g-cta">
+              <a class="btn btn-primary btn--md" href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&amp;ct=website&amp;mt=8" target="_blank" rel="noopener noreferrer">Download Travel Times</a>
+              <a class="btn btn-secondary btn--md" href="/">Back to home</a>
+            </div>
+          </section>
+
+          <!-- ---------- Prev / next pagination ---------- -->
+          <nav class="sheet-nav" aria-label="Sheet pagination" data-sheet-nav hidden>
+            <a class="sheet-nav-prev" href="#overview" data-prev>
+              <span class="sn-dir">‹ PREV SHEET</span>
+              <span class="sn-title">Overview</span>
+            </a>
+            <a class="sheet-nav-next" href="#quick-start" data-next>
+              <span class="sn-dir">NEXT SHEET ›</span>
+              <span class="sn-title">Quick Start</span>
+            </a>
+          </nav>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-base">
+        <div class="container">
+          <span>© <span data-year>2026</span> VINNY CARPENTER · MILWAUKEE MADE</span>
+          <nav aria-label="Site"><a href="/">HOME</a> · <a href="/privacy.html">PRIVACY</a> · <a href="/terms.html">TERMS</a></nav>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/script.js" defer></script>
+    <script src="/guide.js" defer></script>
+  </body>
+</html>

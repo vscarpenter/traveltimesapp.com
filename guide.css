@@ -1,0 +1,477 @@
+/* =========================================================================
+   Travel Times Milwaukee — User Guide page (guide.html)
+   Page-only layout on top of the Blueprint system in styles.css.
+   The guide is a drawing set: a sticky SHEET INDEX switches numbered sheets
+   in a viewport. No new design tokens — everything inherits from :root.
+
+   Progressive enhancement: without JS every sheet renders stacked (see the
+   html:not(.js) rules). With JS, only the active sheet shows; guide.js drives
+   the switch, the counter, prev/next, focus and a polite live announcement.
+   ========================================================================= */
+
+/* Grid-paper background, same recipe as the landing hero. */
+body.guide {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Visually-hidden utility (skip-link target announcements, live region). */
+.visually-hidden:where(:not(:focus-within, :active)) {
+  position: absolute !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+/* ---------- Intro head (mirrors .legal-head) ---------- */
+.guide-intro { padding: 52px 0 36px; }
+.guide-h1 {
+  margin-top: 16px;
+  font-size: 44px;
+  line-height: 1.08;
+  letter-spacing: -1.2px;
+  color: var(--ink-dark);
+  max-width: 20ch;
+  text-wrap: balance;
+}
+.guide-lede {
+  margin-top: 14px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text-body);
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+.guide-meta { margin-top: 16px; }
+
+/* ---------- Two-pane shell: index + viewport ---------- */
+.guide-shell {
+  display: grid;
+  grid-template-columns: 244px minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+  padding-bottom: 80px;
+}
+
+/* ---------- Sheet index (left) ---------- */
+.sheet-index {
+  position: sticky;
+  top: calc(var(--header-h) + 20px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 14px;
+}
+.sheet-index-head {
+  padding: 2px 8px 10px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.sheet-index ol { margin-top: 8px; }
+.si-item + .si-item { margin-top: 1px; }
+.si-item a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 10px;
+  border-left: 2px solid transparent;
+  border-radius: 3px;
+  color: var(--text-nav);
+  transition: background var(--dur-fast) var(--ease),
+              color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease);
+}
+.si-item a:hover { background: var(--surface-tint); color: var(--ink-dark); }
+.si-num {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.si-label { font-size: 14px; line-height: 1.35; }
+/* Active sheet — accent rail + tint, the "you are here" cell */
+.si-item a[aria-current="true"] {
+  background: var(--surface-tint);
+  border-left-color: var(--blue-accent);
+  color: var(--ink-dark);
+  font-weight: 600;
+}
+.si-item a[aria-current="true"] .si-num { color: var(--blue-accent); }
+
+.sheet-counter {
+  margin-top: 12px;
+  padding: 10px 10px 2px;
+  border-top: 1px solid var(--border-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Viewport + sheets (right) ---------- */
+.sheet-viewport { min-width: 0; }
+
+/* Each sheet is a white "drawing sheet" panel on the paper grid. */
+.guide-sheet {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 30px 34px 34px;
+}
+/* JS on: show only the active sheet. Synchronous html.js class (set in <head>)
+   means non-active sheets never flash before guide.js reconciles the hash. */
+html.js .guide-sheet:not(.is-active) { display: none; }
+/* Gentle enter transition when a sheet becomes active. */
+html.js .guide-sheet.is-active { animation: sheetIn var(--dur-base) var(--ease-out); }
+@keyframes sheetIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.sheet-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sheet-tag { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.guide-sheet-title {
+  margin-top: 12px;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -.8px;
+  color: var(--ink-dark);
+  text-wrap: balance;
+}
+/* Programmatic focus target — no outline box when focus is moved by script,
+   but keep a visible ring for real keyboard focus. */
+.guide-sheet-title:focus { outline: none; }
+.guide-sheet-lede {
+  margin-top: 12px;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--text-body);
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+
+/* ---------- In-sheet content helpers ---------- */
+.g-block { margin-top: 28px; }
+.g-h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink-dark);
+  letter-spacing: -.2px;
+}
+.g-h3 + .g-p, .g-h3 + .g-steps, .g-h3 + .g-list { margin-top: 8px; }
+.g-p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-body);
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+.g-p strong { color: var(--text); font-weight: 600; }
+.g-p a, .g-list a {
+  color: var(--blue-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Square-marker list (matches .doc-section ul) */
+.g-list {
+  margin-top: 10px;
+  padding-left: 18px;
+  list-style: square;
+  max-width: 62ch;
+}
+.g-list li { margin-top: 7px; font-size: 15px; line-height: 1.55; color: var(--text-body); }
+.g-list li::marker { color: var(--blue-accent); }
+
+/* Numbered procedure — mono accent counters */
+.g-steps {
+  margin-top: 12px;
+  counter-reset: step;
+  max-width: 62ch;
+}
+.g-steps li {
+  position: relative;
+  counter-increment: step;
+  padding-left: 40px;
+  min-height: 24px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-body);
+}
+.g-steps li + li { margin-top: 12px; }
+.g-steps li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: -1px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue-accent);
+  background: var(--surface-tint);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-variant-numeric: tabular-nums;
+}
+.g-steps li strong { color: var(--text); font-weight: 600; }
+.g-steps code, .g-p code, .g-list code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--blue-primary);
+  background: var(--surface-tint);
+  border: 1px solid var(--border-soft);
+  border-radius: 3px;
+  padding: 1px 5px;
+  white-space: nowrap;
+}
+
+/* Split layout: prose beside a screenshot figure */
+.g-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 36px;
+  align-items: start;
+}
+.g-split--wide { grid-template-columns: minmax(0, 1fr); } /* stacked, for iPad shots */
+.g-split-body > :first-child { margin-top: 0; }
+
+/* Screenshot figure inside a dashed detail callout */
+.g-figure { margin: 0; justify-self: center; }
+.g-figure .callout {
+  padding: 18px 20px;
+  justify-self: center;
+}
+/* Callout edge labels default to paper bg; sheets are white — match. */
+.guide-sheet .callout-label { background: var(--surface); }
+.g-shot {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px;
+  background: var(--surface-tint);
+  width: 248px;
+}
+.g-shot--wide { width: min(560px, 100%); border-radius: 12px; }
+.g-shot .device-screen { border-radius: 15px; overflow: hidden; }
+.g-shot--wide .device-screen { border-radius: 8px; }
+.g-shot img { width: 100%; display: block; }
+.g-figcap {
+  margin-top: 12px;
+  max-width: 34ch;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-body);
+  text-align: center;
+  margin-inline: auto;
+}
+.g-split--wide .g-figcap { max-width: 60ch; }
+
+/* Tip / example box — dashed accent frame around text (callout motif for prose) */
+.g-tip {
+  position: relative;
+  margin-top: 22px;
+  border: 1.5px dashed var(--blue-accent);
+  border-radius: 12px;
+  padding: 18px 20px 16px;
+  max-width: 64ch;
+}
+.g-tip-label {
+  position: absolute;
+  top: -9px;
+  left: 20px;
+  background: var(--surface);
+  padding: 0 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 1.5px;
+  color: var(--blue-accent);
+}
+.g-tip p { font-size: 14.5px; line-height: 1.6; color: var(--text-body); }
+.g-tip p + p { margin-top: 8px; }
+.g-tip strong { color: var(--text); font-weight: 600; }
+
+/* Status legend (reuses .legend + .status--*) — a little breathing room */
+.g-legend { margin-top: 16px; flex-wrap: wrap; }
+
+/* Keyboard shortcut key */
+.g-kbd {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue-primary);
+  background: var(--surface-tint);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+/* FAQ — disclosure list */
+.g-faq { margin-top: 18px; border-top: 1px solid var(--border-soft); }
+.g-faq details {
+  border-bottom: 1px solid var(--border-soft);
+}
+.g-faq summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 4px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--ink-dark);
+}
+.g-faq summary::-webkit-details-marker { display: none; }
+.g-faq summary::before {
+  content: "+";
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue-accent);
+  width: 16px;
+  text-align: center;
+}
+.g-faq details[open] summary::before { content: "\2212"; } /* minus */
+.g-faq summary:hover { color: var(--blue-primary); }
+.g-faq .g-faq-body {
+  padding: 0 4px 16px 32px;
+}
+.g-faq .g-faq-body p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text-body);
+  max-width: 64ch;
+}
+.g-faq .g-faq-body p + p { margin-top: 8px; }
+.g-faq .g-faq-body code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--blue-primary);
+}
+
+/* Reuse .checklist inside sheets with a touch more spacing */
+.guide-sheet .checklist { margin-top: 14px; }
+
+/* Reuse .spec-table headroom */
+.guide-sheet .spec-table { margin-top: 14px; max-width: 620px; }
+
+/* Example-name chips (route groups) */
+.g-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+/* Siri phrase pills */
+.g-phrases { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; max-width: 56ch; }
+.g-phrases li {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--text);
+  padding: 9px 14px;
+  background: var(--surface-tint);
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+}
+.g-phrases li::before { content: "\201C"; color: var(--blue-accent); }
+.g-phrases li::after  { content: "\201D"; color: var(--blue-accent); }
+
+/* iPad screenshots, two-up */
+.g-ipad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
+.g-ipad-grid .g-figure { justify-self: stretch; width: 100%; }
+.g-ipad-grid .g-shot--wide { width: 100%; }
+
+/* Final CTA row */
+.g-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+/* ---------- Prev / next pagination ---------- */
+.sheet-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 22px;
+}
+.sheet-nav a {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  max-width: 46%;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  transition: border-color var(--dur-base) var(--ease), background var(--dur-base) var(--ease);
+}
+.sheet-nav a:hover { border-color: var(--blue-accent); background: var(--surface-tint); }
+/* [hidden] loses to the display rules above — restore it so the pager stays
+   hidden without JS and prev/next drop at the ends. */
+.sheet-nav[hidden], .sheet-nav a[hidden] { display: none; }
+.sheet-nav-next { text-align: right; margin-left: auto; }
+.sheet-nav .sn-dir {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+.sheet-nav .sn-title { font-size: 14.5px; font-weight: 600; color: var(--ink-dark); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  /* Index moves above the viewport and becomes a horizontal wrap of chips. */
+  .guide-shell { grid-template-columns: 1fr; gap: 24px; }
+  .sheet-index {
+    position: static;
+    top: auto;
+  }
+  .sheet-index ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .si-item + .si-item { margin-top: 0; }
+  .si-item a {
+    border-left: 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 7px 11px;
+  }
+  .si-item a[aria-current="true"] { border-color: var(--blue-accent); }
+  .sheet-counter { display: none; }
+  .g-split { grid-template-columns: 1fr; gap: 24px; }
+  .g-ipad-grid { grid-template-columns: 1fr; }
+  .g-figure { justify-self: start; }
+  .g-figcap { margin-inline: 0; text-align: left; }
+}
+
+@media (max-width: 720px) {
+  .guide-h1 { font-size: clamp(2rem, 8vw, 2.5rem); }
+  .guide-sheet { padding: 24px 20px 26px; }
+  .guide-sheet-title { font-size: clamp(1.5rem, 6vw, 1.75rem); }
+  .g-shot { width: min(240px, 72vw); }
+}
+
+@media (max-width: 400px) {
+  .sheet-head .sheet-tag { display: none; }
+}
+
+/* Coarse pointers — 44px min targets on the index + pagination */
+@media (pointer: coarse) {
+  .si-item a { min-height: 44px; align-items: center; }
+  .g-faq summary { min-height: 44px; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html.js .guide-sheet.is-active { animation: none; }
+}

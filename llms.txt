@@ -16,6 +16,7 @@ Key facts:
 ## Pages
 
 - [Home](https://traveltimesapp.com/): features, live board demo, screenshots, reviews, and download links
+- [User guide](https://traveltimesapp.com/guide.html): how to use the app on iPhone, iPad, and Apple Watch — favorites, notifications, Live Activities, route groups, and Siri commute answers
 - [Privacy policy](https://traveltimesapp.com/privacy.html)
 - [Terms of use](https://traveltimesapp.com/terms.html)
 
