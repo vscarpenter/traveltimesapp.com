@@ -171,7 +171,7 @@
           <p class="fig">FIG. 03 — BUILT FOR COMMUTERS</p>
           <div class="section-title-row">
             <h2 class="section-title">Everything you need. Nothing you don't.</h2>
-            <span class="note sheet">SHEET 3 OF 8</span>
+            <span class="note sheet">SHEET 3 OF 9</span>
           </div>
           <p class="section-lede">Hyperlocal traffic intelligence, stripped down to the signal.</p>
 
@@ -435,12 +435,203 @@
         </div>
       </section>
 
+      <!-- HOW IT WORKS: where a travel time comes from -->
+      <section id="how" class="band how">
+        <div class="container section-head">
+          <p class="fig">FIG. 09 — HOW IT WORKS</p>
+          <div class="section-title-row">
+            <h2 class="section-title">How a travel time reaches your phone.</h2>
+            <span class="note sheet">SHEET 9 OF 9</span>
+          </div>
+          <p class="section-lede">WisDOT publishes the raw data. An AWS server hosts it as two JSON files, rewritten every five minutes, and the app reads them directly. Your favorites sync through your own iCloud account, and the Watch and Lock Screen update straight from your phone. There's no account to create and no push server in the loop.</p>
+
+          <figure class="arch" data-reveal>
+            <div class="arch-scroll" tabindex="0" role="region" aria-label="System diagram (scrolls sideways on narrow screens)">
+              <svg viewBox="0 0 1104 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tt-arch-title tt-arch-desc">
+                <title id="tt-arch-title">TravelTimes architecture: iOS app and AWS backend</title>
+                <desc id="tt-arch-desc">Architecture diagram showing WisDOT traffic data served as two JSON files from an AWS server, fetched by the TravelTimes app, which updates the Apple Watch and Live Activities itself and syncs favorites through iCloud, while CloudFront and S3 serve this website.</desc>
+                <defs>
+                  <marker id="tt-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4A5680"/></marker>
+                  <marker id="tt-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto-start-reverse"><polygon points="0 0, 8 3, 0 6" fill="#2B50D8"/></marker>
+                  <pattern id="tt-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                    <path d="M 24 0 H 0 V 24" fill="none" stroke="rgba(43,80,216,0.06)" stroke-width="1"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="#EDF1F9"/>
+                <rect width="100%" height="100%" fill="url(#tt-grid)"/>
+                <!-- Zones (drawn before arrows and nodes) -->
+                <rect x="224" y="120" width="320" height="456" fill="rgba(18,29,69,0.02)" stroke="rgba(18,29,69,0.22)" stroke-width="0.8" stroke-dasharray="4,3"/>
+                <path d="M 224,132 V 120 H 236" fill="none" stroke="#586590" stroke-width="1"/>
+                <path d="M 544,132 V 120 H 532" fill="none" stroke="#586590" stroke-width="1"/>
+                <path d="M 224,564 V 576 H 236" fill="none" stroke="#586590" stroke-width="1"/>
+                <path d="M 544,564 V 576 H 532" fill="none" stroke="#586590" stroke-width="1"/>
+                <rect x="236" y="124" width="148" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="242" y="133" fill="#586590" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" letter-spacing="0.14em">ZONE A · AWS US-EAST-1</text>
+                <rect x="584" y="120" width="496" height="232" fill="rgba(18,29,69,0.02)" stroke="rgba(18,29,69,0.22)" stroke-width="0.8" stroke-dasharray="4,3"/>
+                <path d="M 584,132 V 120 H 596" fill="none" stroke="#586590" stroke-width="1"/>
+                <path d="M 1080,132 V 120 H 1068" fill="none" stroke="#586590" stroke-width="1"/>
+                <path d="M 584,340 V 352 H 596" fill="none" stroke="#586590" stroke-width="1"/>
+                <path d="M 1080,340 V 352 H 1068" fill="none" stroke="#586590" stroke-width="1"/>
+                <rect x="596" y="124" width="148" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="602" y="133" fill="#586590" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" letter-spacing="0.14em">ZONE B · APPLE DEVICES</text>
+                <!-- Route 53 hosts DNS for both domains -->
+                <rect x="440" y="124" width="92" height="12" rx="2" fill="#EDF1F9" stroke="rgba(88,101,144,0.55)" stroke-width="0.8"/>
+                <text x="486" y="133" fill="#586590" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" text-anchor="middle" letter-spacing="0.06em">DNS · ROUTE 53</text>
+                <!-- Arrows follow the data and are drawn before nodes -->
+                <!-- WisDOT to the AWS server: scheduled, so dashed -->
+                <line x1="184" y1="232" x2="280" y2="232" stroke="#2B50D8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#tt-arrow-accent)"/>
+                <!-- Headline path: traveltimes.json to NetworkManager (heavier stroke) -->
+                <line x1="488" y1="216" x2="608" y2="216" stroke="#2B50D8" stroke-width="2" marker-end="url(#tt-arrow-accent)"/>
+                <!-- events.json to EventsManager -->
+                <line x1="488" y1="248" x2="608" y2="248" stroke="#2B50D8" stroke-width="1.2" marker-end="url(#tt-arrow-accent)"/>
+                <!-- The S3 website bucket is the CloudFront origin -->
+                <line x1="384" y1="480" x2="384" y2="432" stroke="#4A5680" stroke-width="1.2" marker-end="url(#tt-arrow)"/>
+                <!-- Privacy page, opened in the browser on demand -->
+                <path d="M 488,400 H 672 Q 680,400 680,392 V 312" fill="none" stroke="#2B50D8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#tt-arrow-accent)"/>
+                <!-- Favorites to the Watch over WatchConnectivity -->
+                <line x1="816" y1="192" x2="896" y2="192" stroke="#4A5680" stroke-width="1.2" marker-end="url(#tt-arrow)"/>
+                <!-- The Watch asks the phone for a fresh fetch -->
+                <line x1="896" y1="216" x2="816" y2="216" stroke="#4A5680" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#tt-arrow)"/>
+                <!-- Live Activities update locally, with no push server -->
+                <line x1="816" y1="288" x2="896" y2="288" stroke="#4A5680" stroke-width="1.2" marker-end="url(#tt-arrow)"/>
+                <!-- Favorites sync both ways through iCloud key-value storage -->
+                <path d="M 744,312 V 448 Q 744,456 752,456 H 896" fill="none" stroke="#2B50D8" stroke-width="1.2" marker-start="url(#tt-arrow-accent)" marker-end="url(#tt-arrow-accent)"/>
+                <!-- Arrow labels -->
+                <rect x="198" y="212" width="68" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="232" y="221" fill="#2B50D8" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">EVERY 5 MIN</text>
+                <rect x="514" y="196" width="68" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="548" y="205" fill="#2B50D8" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">ROUTE TIMES</text>
+                <rect x="518" y="228" width="60" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="548" y="237" fill="#2B50D8" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">INCIDENTS</text>
+                <rect x="392" y="450" width="44" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="414" y="459" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">ORIGIN</text>
+                <rect x="542" y="380" width="76" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="580" y="389" fill="#2B50D8" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">PRIVACY PAGE</text>
+                <rect x="826" y="172" width="60" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="856" y="181" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">FAVORITES</text>
+                <rect x="832" y="224" width="48" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="856" y="233" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">REFRESH</text>
+                <rect x="818" y="268" width="76" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="856" y="277" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">LOCAL UPDATE</text>
+                <rect x="780" y="436" width="88" height="12" rx="2" fill="#EDF1F9"/>
+                <text x="824" y="445" fill="#2B50D8" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">FAVORITES SYNC</text>
+                <!-- Node: WisDOT traffic data (input) -->
+                <rect x="24" y="200" width="160" height="64" rx="6" fill="#EDF1F9"/>
+                <rect x="24" y="200" width="160" height="64" rx="6" fill="rgba(74,86,128,0.10)" stroke="#586590" stroke-width="1.0"/>
+                <rect x="32" y="208" width="28" height="12" rx="2" fill="none" stroke="rgba(88,101,144,0.50)" stroke-width="0.8"/>
+                <text x="46" y="217" fill="#4A5680" font-size="7" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" text-anchor="middle" letter-spacing="0.08em">SRC</text>
+                <text x="104" y="236" fill="#121D45" font-size="12" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="600" text-anchor="middle">WisDOT traffic data</text>
+                <text x="104" y="252" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">travel times · incidents</text>
+                <!-- Node: AWS Server (backend) -->
+                <rect x="280" y="184" width="208" height="96" rx="6" fill="#EDF1F9"/>
+                <rect x="280" y="184" width="208" height="96" rx="6" fill="#FFFFFF" stroke="#121D45" stroke-width="1.0"/>
+                <rect x="288" y="192" width="28" height="12" rx="2" fill="none" stroke="rgba(18,29,69,0.40)" stroke-width="0.8"/>
+                <text x="302" y="201" fill="#121D45" font-size="7" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" text-anchor="middle" letter-spacing="0.08em">SRV</text>
+                <text x="480" y="201" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="end" letter-spacing="0.06em">A.1</text>
+                <text x="384" y="226" fill="#121D45" font-size="12" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="600" text-anchor="middle">AWS Server</text>
+                <text x="384" y="242" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">traveltimes.json</text>
+                <text x="384" y="256" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">events.json</text>
+                <!-- Node: CloudFront (managed) -->
+                <rect x="280" y="368" width="208" height="64" rx="6" fill="#EDF1F9"/>
+                <rect x="280" y="368" width="208" height="64" rx="6" fill="rgba(18,29,69,0.03)" stroke="rgba(18,29,69,0.50)" stroke-width="1.0"/>
+                <rect x="288" y="376" width="28" height="12" rx="2" fill="none" stroke="rgba(18,29,69,0.30)" stroke-width="0.8"/>
+                <text x="302" y="385" fill="#4A5680" font-size="7" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" text-anchor="middle" letter-spacing="0.08em">CDN</text>
+                <text x="480" y="385" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="end" letter-spacing="0.06em">A.2</text>
+                <text x="384" y="404" fill="#121D45" font-size="12" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="600" text-anchor="middle">CloudFront</text>
+                <text x="384" y="420" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">traveltimesapp.com</text>
+                <!-- Node: Site bucket (store) -->
+                <rect x="280" y="480" width="208" height="64" rx="6" fill="#EDF1F9"/>
+                <rect x="280" y="480" width="208" height="64" rx="6" fill="rgba(18,29,69,0.06)" stroke="#4A5680" stroke-width="1.0"/>
+                <rect x="288" y="488" width="28" height="12" rx="2" fill="none" stroke="rgba(74,86,128,0.50)" stroke-width="0.8"/>
+                <text x="302" y="497" fill="#4A5680" font-size="7" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" text-anchor="middle" letter-spacing="0.08em">S3</text>
+                <text x="480" y="497" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="end" letter-spacing="0.06em">A.3</text>
+                <text x="384" y="516" fill="#121D45" font-size="12" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="600" text-anchor="middle">Site bucket</text>
+                <text x="384" y="532" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">static site · privacy.html</text>
+                <!-- Node: TravelTimes (focal) -->
+                <rect x="608" y="152" width="208" height="160" rx="6" fill="#EDF1F9"/>
+                <rect x="608" y="152" width="208" height="160" rx="6" fill="rgba(43,80,216,0.08)" stroke="#2B50D8" stroke-width="1.5"/>
+                <rect x="616" y="160" width="28" height="12" rx="2" fill="none" stroke="rgba(43,80,216,0.50)" stroke-width="0.8"/>
+                <text x="630" y="169" fill="#2B50D8" font-size="7" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" text-anchor="middle" letter-spacing="0.08em">APP</text>
+                <text x="808" y="169" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="end" letter-spacing="0.06em">B.1</text>
+                <text x="712" y="182" fill="#121D45" font-size="12" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="600" text-anchor="middle">TravelTimes</text>
+                <text x="712" y="198" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">iPhone + iPad · UIKit · iOS 26</text>
+                <line x1="620" y1="204" x2="804" y2="204" stroke="rgba(43,80,216,0.25)" stroke-width="0.8"/>
+                <text x="620" y="219" fill="#121D45" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500">NetworkManager</text>
+                <text x="804" y="219" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="end">retry · cache</text>
+                <text x="620" y="251" fill="#121D45" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500">EventsManager</text>
+                <text x="804" y="251" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="end">5 min TTL</text>
+                <text x="620" y="283" fill="#121D45" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500">BGAppRefreshTask</text>
+                <text x="804" y="283" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="end">15 min+</text>
+                <!-- Node: Apple Watch (backend) -->
+                <rect x="896" y="168" width="160" height="64" rx="6" fill="#EDF1F9"/>
+                <rect x="896" y="168" width="160" height="64" rx="6" fill="#FFFFFF" stroke="#121D45" stroke-width="1.0"/>
+                <rect x="904" y="176" width="36" height="12" rx="2" fill="none" stroke="rgba(18,29,69,0.40)" stroke-width="0.8"/>
+                <text x="922" y="185" fill="#121D45" font-size="7" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" text-anchor="middle" letter-spacing="0.08em">WATCH</text>
+                <text x="1048" y="185" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="end" letter-spacing="0.06em">B.2</text>
+                <text x="976" y="204" fill="#121D45" font-size="12" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="600" text-anchor="middle">Apple Watch</text>
+                <text x="976" y="220" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">watchOS · complication</text>
+                <!-- Node: Live Activity (backend) -->
+                <rect x="896" y="256" width="160" height="64" rx="6" fill="#EDF1F9"/>
+                <rect x="896" y="256" width="160" height="64" rx="6" fill="#FFFFFF" stroke="#121D45" stroke-width="1.0"/>
+                <rect x="904" y="264" width="40" height="12" rx="2" fill="none" stroke="rgba(18,29,69,0.40)" stroke-width="0.8"/>
+                <text x="924" y="273" fill="#121D45" font-size="7" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" text-anchor="middle" letter-spacing="0.08em">WIDGET</text>
+                <text x="1048" y="273" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="end" letter-spacing="0.06em">B.3</text>
+                <text x="976" y="292" fill="#121D45" font-size="12" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="600" text-anchor="middle">Live Activity</text>
+                <text x="976" y="308" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">Lock Screen + Island</text>
+                <!-- Node: iCloud key-value (managed) -->
+                <rect x="896" y="424" width="160" height="64" rx="6" fill="#EDF1F9"/>
+                <rect x="896" y="424" width="160" height="64" rx="6" fill="rgba(18,29,69,0.03)" stroke="rgba(18,29,69,0.50)" stroke-width="1.0"/>
+                <rect x="904" y="432" width="28" height="12" rx="2" fill="none" stroke="rgba(18,29,69,0.30)" stroke-width="0.8"/>
+                <text x="918" y="441" fill="#4A5680" font-size="7" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" text-anchor="middle" letter-spacing="0.08em">KVS</text>
+                <text x="976" y="460" fill="#121D45" font-size="12" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="600" text-anchor="middle">iCloud key-value</text>
+                <text x="976" y="476" fill="#4A5680" font-size="9" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">NSUbiquitousKeyValueStore</text>
+                <!-- Note 1: the feeds carry no personal data -->
+                <text x="224" y="68" fill="#16234E" font-size="13.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">Two static JSON files, the same for</text>
+                <text x="224" y="86" fill="#16234E" font-size="13.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">everyone. No accounts, no personal data.</text>
+                <path d="M 392,94 Q 408,120 408,178" fill="none" stroke="rgba(18,29,69,0.40)" stroke-width="1" stroke-dasharray="4,3"/>
+                <circle cx="408" cy="184" r="2" fill="#121D45"/>
+                <!-- Note 2: nothing pushes to the device -->
+                <text x="1056" y="68" fill="#16234E" font-size="13.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" text-anchor="end">No push server. After each fetch, the app</text>
+                <text x="1056" y="86" fill="#16234E" font-size="13.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" text-anchor="end">updates the Watch and Live Activities itself.</text>
+                <path d="M 952,94 Q 976,112 976,162" fill="none" stroke="rgba(18,29,69,0.40)" stroke-width="1" stroke-dasharray="4,3"/>
+                <circle cx="976" cy="168" r="2" fill="#121D45"/>
+                <!-- Legend strip -->
+                <line x1="24" y1="632" x2="1080" y2="632" stroke="rgba(18,29,69,0.12)" stroke-width="0.8"/>
+                <text x="24" y="656" fill="#4A5680" font-size="8" font-family="'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="500" letter-spacing="0.18em">LEGEND</text>
+                <rect x="24" y="672" width="14" height="10" rx="2" fill="rgba(43,80,216,0.08)" stroke="#2B50D8" stroke-width="1.5"/>
+                <text x="44" y="680" fill="#4A5680" font-size="8.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">Focal: the app</text>
+                <rect x="132" y="672" width="14" height="10" rx="2" fill="#FFFFFF" stroke="#121D45" stroke-width="1.0"/>
+                <text x="152" y="680" fill="#4A5680" font-size="8.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">Code we run</text>
+                <rect x="228" y="672" width="14" height="10" rx="2" fill="rgba(18,29,69,0.03)" stroke="rgba(18,29,69,0.50)" stroke-width="1.0"/>
+                <text x="248" y="680" fill="#4A5680" font-size="8.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">Managed service</text>
+                <rect x="340" y="672" width="14" height="10" rx="2" fill="rgba(18,29,69,0.06)" stroke="#4A5680" stroke-width="1.0"/>
+                <text x="360" y="680" fill="#4A5680" font-size="8.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">Storage</text>
+                <rect x="416" y="672" width="14" height="10" rx="2" fill="rgba(74,86,128,0.10)" stroke="#586590" stroke-width="1.0"/>
+                <text x="436" y="680" fill="#4A5680" font-size="8.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">Data source</text>
+                <line x1="512" y1="677" x2="540" y2="677" stroke="#2B50D8" stroke-width="2.0" marker-end="url(#tt-arrow-accent)"/>
+                <text x="548" y="680" fill="#4A5680" font-size="8.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">Route-times feed</text>
+                <line x1="648" y1="677" x2="676" y2="677" stroke="#2B50D8" stroke-width="1.2" marker-end="url(#tt-arrow-accent)"/>
+                <text x="684" y="680" fill="#4A5680" font-size="8.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">Crosses the internet</text>
+                <line x1="800" y1="677" x2="828" y2="677" stroke="#4A5680" stroke-width="1.2" marker-end="url(#tt-arrow)"/>
+                <text x="836" y="680" fill="#4A5680" font-size="8.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">Local hop</text>
+                <line x1="900" y1="677" x2="928" y2="677" stroke="#4A5680" stroke-width="1.0" stroke-dasharray="4,3" marker-end="url(#tt-arrow)"/>
+                <text x="936" y="680" fill="#4A5680" font-size="8.5" font-family="'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">Scheduled or on demand</text>
+              </svg>
+            </div>
+            <figcaption class="arch-foot">
+              <span>SRC: AWS APIS · HTTP HEADERS · APP SOURCE · CHECKED 2026·10·12</span>
+              <span class="arch-hint" aria-hidden="true">SCROLL TO PAN →</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
       <!-- DOWNLOAD CTA — Title Block -->
       <section id="download" class="cta">
         <div class="container">
           <div class="cta-block">
             <div class="cta-main">
-              <p class="kicker">TITLE BLOCK — SHEET 8 OF 8</p>
+              <p class="kicker">TITLE BLOCK — SHEET 9 OF 9</p>
               <h2>Ready to beat traffic?</h2>
               <p>Download Travel Times Milwaukee and arrive on time — every time.</p>
               <a class="btn btn-white btn--md" href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&amp;ct=website&amp;mt=8" target="_blank" rel="noopener noreferrer">
@@ -488,6 +679,7 @@
             <li><a href="#platform">What's new</a></li>
             <li><a href="#screenshots">Screenshots</a></li>
             <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#how">How it works</a></li>
             <li><a href="/guide.html">User guide</a></li>
             <li><a href="https://itunes.apple.com/us/app/apple-store/id932688030?pt=543741&amp;ct=website&amp;mt=8" target="_blank" rel="noopener noreferrer">App Store</a></li>
           </ul>

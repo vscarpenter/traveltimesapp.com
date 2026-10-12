@@ -802,6 +802,42 @@ h1, h2, h3 { color: var(--ink-dark); font-weight: 700; }
 .spec-row dd { margin: 0; font-size: 13.5px; color: var(--text-body); }
 .spec-list { margin: 0; } /* <dl> holds only dt/dd groups; header lives outside it */
 
+/* ---------- How it works: architecture figure ---------- */
+.how .container { padding-bottom: 72px; }
+.how .section-lede { max-width: 64ch; }
+.arch {
+  margin-top: 32px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--paper);
+  overflow: hidden;
+}
+/* The SVG keeps 1:1 scale (min-width equals its viewBox width) so diagram type
+   never shrinks; narrower screens pan the figure inside this frame instead. */
+.arch-scroll { overflow-x: auto; }
+.arch-scroll:focus-visible { outline-offset: -2px; }
+.arch-scroll svg { width: 100%; min-width: 1104px; height: auto; }
+.arch-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 9px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-tint);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+.arch-hint { display: none; }
+@media (max-width: 1159px) { .arch-hint { display: inline; } }
+/* Paper can't scroll: let the figure scale to the sheet instead of clipping */
+@media print {
+  .arch-scroll { overflow-x: visible; }
+  .arch-scroll svg { min-width: 0; }
+}
+
 /* ---------- CTA — title block (ink dark + light grid lines) ---------- */
 .cta {
   background-color: var(--ink-dark);
