@@ -46,7 +46,7 @@ Accessibility commitments:
 
 | | |
 |---|---|
-| Platform | iOS 17.4+ (iPhone · iPad · Mac · Vision) |
+| Platform | iOS 26+ (iPhone · iPad · Mac · Vision) |
 | Size | ~1.2 MB |
 | Price | Free |
 | Data | Wisconsin DOT real-time feeds |

@@ -21,7 +21,7 @@ Precise, civic, understated. The site presents itself as a civil-engineering dra
 - The site's own previous design ("Indigo Transit": violet gradients, serif hero, cream backgrounds) — retired because it read as a generic SaaS template.
 - Gradient-mesh / glassmorphism startup landing pages; hero-metric blocks with gradient accents.
 - Colored status **pills** or traffic-light dots — status is always a mono ■ square with an uppercase label.
-- Marketing-speak ("seamless", "supercharge"). The copy persuades with specifics: $0, 1.2 MB, iOS 17.4+, WisDOT.
+- Marketing-speak ("seamless", "supercharge"). The copy persuades with specifics: $0, 1.2 MB, iOS 26+, WisDOT.
 
 ## Design Principles
 

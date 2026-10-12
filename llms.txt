@@ -6,7 +6,7 @@ Key facts:
 
 - Price: $0 — free forever, no ads, no in-app purchases
 - Privacy: no analytics, no tracking, no accounts, no third-party services
-- Requirements: iOS 17.4 or later; app size about 1.2 MB
+- Requirements: iOS 26 or later; app size about 1.2 MB
 - Coverage: I-94, I-43, I-894, US-45, I-41, I-794, and I-39/90 in the greater Milwaukee area
 - Features: color-coded route status (clear / slowing / congested), pinned favorites with iCloud sync, delay and scheduled alerts, active incident details, one-tap sharing, full Apple Watch app with complications
 - Data source: Wisconsin Department of Transportation real-time sensor feed (no crowdsourcing)
